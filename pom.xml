@@ -331,9 +331,9 @@
                             <target>
                                 <property name="jetty.home" value="${user.home}/development/jetty/jetty-9.0.4"/>
                              
-                                <delete dir="${jetty.home}/webapps/book"/>
-                                <copy todir="${jetty.home}/webapps/book">
-                                    <fileset dir="target/book-dev-1.0"/>
+                                <delete dir="${jetty.home}/webapps/book-site-jpa"/>
+                                <copy todir="${jetty.home}/webapps/book-site-jpa">
+                                    <fileset dir="target/book-site-jpa-${version}"/>
                                 </copy>
                             </target>
                         </configuration>
