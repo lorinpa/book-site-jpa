@@ -1,0 +1,1 @@
+CREATE UNIQUE INDEX unique_author_name ON authors (first_name, last_name);

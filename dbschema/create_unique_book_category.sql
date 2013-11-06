@@ -1,0 +1,1 @@
+CREATE UNIQUE INDEX unique_book_category ON book_categories (book_id, category_id)
