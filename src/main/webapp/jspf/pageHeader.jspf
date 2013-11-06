@@ -1,0 +1,39 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<% 
+        String appPath = request.getServletContext().getContextPath();
+   %>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ 
+        <title>Book Review</title>
+        
+        <link href="<%=  appPath %>/stylesheets/normalize.css" type="text/css" rel="stylesheet"/>
+        <link href="<%=  appPath %>/stylesheets/responsive.css" type="text/css" rel="stylesheet"/>
+        <link href="<%=  appPath %>/stylesheets/pure-min.css" type="text/css" rel="stylesheet"/>
+        <link href="<%=  appPath %>/stylesheets/app-custom.css" type="text/css" rel="stylesheet"/>
+        <link href="<%=  appPath %>/favicon.png" rel="shortcut icon"></link>
+    </head>
+    <body>
+      <header class="header center">
+<div class="pure-u-1-5">
+    <h1>Book Reviews</h1>
+</div>
+</header>
+
+<div class="pure-menu pure-menu-open pure-menu-horizontal center">
+
+
+    <ul>
+        <li><a href="<%=  appPath %>/book/list.htm">Home</a></li>
+        <li><a href="<%=  appPath %>/author/list.htm">Authors</a></li>
+        <li><a href="<%=  appPath %>/book/list.htm">Books</a></li>
+        <li><a href="<%=  appPath %>/category/categoryHome.htm">Categories</a></li>
+        <li><a href="<%=  appPath %>/book-cat/list.htm">Book Categories</a></li>
+        <li><a href="<%=  appPath %>/review/list.htm">Book Reviews</a></li>
+    </ul>
+</div>
+<div  class="normal_letter_space">
+    <div class="pure-u-1-5">&nbsp;</div>
+    <div id="report" class="pure-u-3-5">
