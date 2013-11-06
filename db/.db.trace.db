@@ -1,0 +1,1464 @@
+10-18 14:01:53 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ [42102-156]
+10-18 14:01:53 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ [42102-156]
+10-18 14:02:02 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-18 14:02:02 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-18 14:03:13 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ where category0_.id=? [42102-156]
+10-29 11:34:55 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select count(author0_.id) as col_0_0_ from Authors author0_ [42102-156]
+10-29 11:34:55 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select count(author0_.id) as col_0_0_ from Authors author0_ [42102-156]
+10-29 11:34:55 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select count(author0_.id) as col_0_0_ from Authors author0_ [42102-156]
+10-29 11:34:55 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 11:34:55 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 11:34:55 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 11:34:55 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select count(author0_.id) as col_0_0_ from Authors author0_ [42102-156]
+10-29 11:34:55 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select count(author0_.id) as col_0_0_ from Authors author0_ [42102-156]
+10-29 11:34:56 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select count(book0_.id) as col_0_0_ from Books book0_ [42102-156]
+10-29 11:34:56 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select count(book0_.id) as col_0_0_ from Books book0_ [42102-156]
+10-29 11:34:56 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 11:34:56 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 11:34:56 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ [42102-156]
+10-29 11:34:56 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select count(book0_.id) as col_0_0_ from Books book0_ [42102-156]
+10-29 11:34:56 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 11:34:59 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "REVIEWS" not found; SQL statement:
+select review0_.id as id1_4_, review0_.body as body2_4_, review0_.BOOK_ID as BOOK6_4_, review0_.CREATED_AT as CREATED3_4_, review0_.stars as stars4_4_, review0_.UPDATED_AT as UPDATED5_4_ from Reviews review0_ [42102-156]
+10-29 11:34:59 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 11:34:59 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 11:34:59 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "REVIEWS" not found; SQL statement:
+select review0_.id as id1_4_, review0_.body as body2_4_, review0_.BOOK_ID as BOOK6_4_, review0_.CREATED_AT as CREATED3_4_, review0_.stars as stars4_4_, review0_.UPDATED_AT as UPDATED5_4_ from Reviews review0_ [42102-156]
+10-29 11:34:59 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "REVIEWS" not found; SQL statement:
+select review0_.id as id1_4_, review0_.body as body2_4_, review0_.BOOK_ID as BOOK6_4_, review0_.CREATED_AT as CREATED3_4_, review0_.stars as stars4_4_, review0_.UPDATED_AT as UPDATED5_4_ from Reviews review0_ where review0_.id=? [42102-156]
+10-29 11:35:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 11:35:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 11:35:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 11:35:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+insert into Authors (id, CREATED_AT, FIRST_NAME, LAST_NAME, UPDATED_AT) values (null, ?, ?, ?, ?) [42102-156]
+10-29 11:35:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+insert into Authors (id, CREATED_AT, FIRST_NAME, LAST_NAME, UPDATED_AT) values (null, ?, ?, ?, ?) [42102-156]
+10-29 11:35:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 11:35:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+insert into Authors (id, CREATED_AT, FIRST_NAME, LAST_NAME, UPDATED_AT) values (null, ?, ?, ?, ?) [42102-156]
+10-29 11:35:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+insert into Authors (id, CREATED_AT, FIRST_NAME, LAST_NAME, UPDATED_AT) values (null, ?, ?, ?, ?) [42102-156]
+10-29 11:35:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 11:35:01 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ [42102-156]
+10-29 11:35:01 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ [42102-156]
+10-29 11:35:01 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-29 11:35:01 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-29 11:35:01 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ where category0_.id=? [42102-156]
+10-29 11:35:01 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-29 11:35:01 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-29 11:35:01 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ where category0_.id=? [42102-156]
+10-29 11:35:01 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ [42102-156]
+10-29 11:35:01 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ where category0_.id=? [42102-156]
+10-29 11:35:02 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ [42102-156]
+10-29 11:35:02 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 11:35:02 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 11:35:02 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ [42102-156]
+10-29 11:35:02 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 11:35:02 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 11:35:02 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 11:35:02 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 11:35:02 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 11:35:02 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 11:35:02 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 11:35:02 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOK_CATEGORIES" not found; SQL statement:
+select bookcatego0_.id as id1_1_, bookcatego0_.BOOK_ID as BOOK4_1_, bookcatego0_.CATEGORY_ID as CATEGORY5_1_, bookcatego0_.CREATED_AT as CREATED2_1_, bookcatego0_.UPDATED_AT as UPDATED3_1_ from BOOK_CATEGORIES bookcatego0_ [42102-156]
+10-29 11:35:02 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOK_CATEGORIES" not found; SQL statement:
+select bookcatego0_.id as id1_1_, bookcatego0_.BOOK_ID as BOOK4_1_, bookcatego0_.CATEGORY_ID as CATEGORY5_1_, bookcatego0_.CREATED_AT as CREATED2_1_, bookcatego0_.UPDATED_AT as UPDATED3_1_ from BOOK_CATEGORIES bookcatego0_ [42102-156]
+10-29 11:35:02 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOK_CATEGORIES" not found; SQL statement:
+select bookcatego0_.id as id1_1_, bookcatego0_.BOOK_ID as BOOK4_1_, bookcatego0_.CATEGORY_ID as CATEGORY5_1_, bookcatego0_.CREATED_AT as CREATED2_1_, bookcatego0_.UPDATED_AT as UPDATED3_1_ from BOOK_CATEGORIES bookcatego0_ where bookcatego0_.id=? [42102-156]
+10-29 11:35:02 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 11:35:02 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ [42102-156]
+10-29 11:35:02 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 11:35:02 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ [42102-156]
+10-29 11:35:02 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 11:35:02 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ [42102-156]
+10-29 11:35:02 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 11:35:02 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ [42102-156]
+10-29 11:35:03 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 11:35:03 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 11:35:03 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as col_0_0_, book0_.title as col_1_0_, book0_.AUTHOR_ID as col_2_0_ from Books book0_ [42102-156]
+10-29 11:35:04 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 11:35:04 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 11:35:04 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 11:35:04 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOK_CATEGORIES" not found; SQL statement:
+select bookcatego0_.id as col_0_0_, bookcatego0_.BOOK_ID as col_1_0_, bookcatego0_.CATEGORY_ID as col_2_0_ from BOOK_CATEGORIES bookcatego0_ [42102-156]
+10-29 11:35:04 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 11:35:04 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 11:35:04 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 11:35:04 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 11:35:04 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOK_CATEGORIES" not found; SQL statement:
+select bookcatego0_.id as col_0_0_, bookcatego0_.BOOK_ID as col_1_0_, bookcatego0_.CATEGORY_ID as col_2_0_ from BOOK_CATEGORIES bookcatego0_ [42102-156]
+10-29 11:35:04 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOK_CATEGORIES" not found; SQL statement:
+select bookcatego0_.id as id1_1_, bookcatego0_.BOOK_ID as BOOK4_1_, bookcatego0_.CATEGORY_ID as CATEGORY5_1_, bookcatego0_.CREATED_AT as CREATED2_1_, bookcatego0_.UPDATED_AT as UPDATED3_1_ from BOOK_CATEGORIES bookcatego0_ where bookcatego0_.id=? [42102-156]
+10-29 11:35:04 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOK_CATEGORIES" not found; SQL statement:
+select bookcatego0_.id as col_0_0_, bookcatego0_.BOOK_ID as col_1_0_, bookcatego0_.CATEGORY_ID as col_2_0_ from BOOK_CATEGORIES bookcatego0_ [42102-156]
+10-29 11:35:05 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 11:35:05 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+insert into Authors (id, CREATED_AT, FIRST_NAME, LAST_NAME, UPDATED_AT) values (null, ?, ?, ?, ?) [42102-156]
+10-29 11:35:05 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+insert into Authors (id, CREATED_AT, FIRST_NAME, LAST_NAME, UPDATED_AT) values (null, ?, ?, ?, ?) [42102-156]
+10-29 11:35:05 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 11:35:05 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+insert into Authors (id, CREATED_AT, FIRST_NAME, LAST_NAME, UPDATED_AT) values (null, ?, ?, ?, ?) [42102-156]
+10-29 11:35:05 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+insert into Authors (id, CREATED_AT, FIRST_NAME, LAST_NAME, UPDATED_AT) values (null, ?, ?, ?, ?) [42102-156]
+10-29 11:35:05 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 11:35:05 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 11:35:05 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 11:35:05 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 11:35:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ [42102-156]
+10-29 11:35:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ where category0_.id=? [42102-156]
+10-29 11:35:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-29 11:35:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-29 11:35:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-29 11:35:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-29 11:35:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ where category0_.id=? [42102-156]
+10-29 11:35:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ [42102-156]
+10-29 11:35:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ where category0_.id=? [42102-156]
+10-29 11:35:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ [42102-156]
+10-29 11:36:02 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select count(author0_.id) as col_0_0_ from Authors author0_ [42102-156]
+10-29 11:36:02 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select count(author0_.id) as col_0_0_ from Authors author0_ [42102-156]
+10-29 11:36:02 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select count(author0_.id) as col_0_0_ from Authors author0_ [42102-156]
+10-29 11:36:02 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 11:36:02 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 11:36:02 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 11:36:02 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select count(author0_.id) as col_0_0_ from Authors author0_ [42102-156]
+10-29 11:36:02 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select count(author0_.id) as col_0_0_ from Authors author0_ [42102-156]
+10-29 12:04:40 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select count(author0_.id) as col_0_0_ from Authors author0_ [42102-156]
+10-29 12:04:40 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select count(author0_.id) as col_0_0_ from Authors author0_ [42102-156]
+10-29 12:04:40 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select count(author0_.id) as col_0_0_ from Authors author0_ [42102-156]
+10-29 12:04:40 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:04:40 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:04:40 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:04:40 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select count(author0_.id) as col_0_0_ from Authors author0_ [42102-156]
+10-29 12:04:40 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select count(author0_.id) as col_0_0_ from Authors author0_ [42102-156]
+10-29 12:04:40 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select count(book0_.id) as col_0_0_ from Books book0_ [42102-156]
+10-29 12:04:40 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select count(book0_.id) as col_0_0_ from Books book0_ [42102-156]
+10-29 12:04:40 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:04:40 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:04:40 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ [42102-156]
+10-29 12:04:40 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select count(book0_.id) as col_0_0_ from Books book0_ [42102-156]
+10-29 12:04:40 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:04:43 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "REVIEWS" not found; SQL statement:
+select review0_.id as id1_4_, review0_.body as body2_4_, review0_.BOOK_ID as BOOK6_4_, review0_.CREATED_AT as CREATED3_4_, review0_.stars as stars4_4_, review0_.UPDATED_AT as UPDATED5_4_ from Reviews review0_ [42102-156]
+10-29 12:04:44 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:04:44 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:04:44 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "REVIEWS" not found; SQL statement:
+select review0_.id as id1_4_, review0_.body as body2_4_, review0_.BOOK_ID as BOOK6_4_, review0_.CREATED_AT as CREATED3_4_, review0_.stars as stars4_4_, review0_.UPDATED_AT as UPDATED5_4_ from Reviews review0_ [42102-156]
+10-29 12:04:44 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "REVIEWS" not found; SQL statement:
+select review0_.id as id1_4_, review0_.body as body2_4_, review0_.BOOK_ID as BOOK6_4_, review0_.CREATED_AT as CREATED3_4_, review0_.stars as stars4_4_, review0_.UPDATED_AT as UPDATED5_4_ from Reviews review0_ where review0_.id=? [42102-156]
+10-29 12:04:44 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 12:04:44 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 12:04:44 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:04:44 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+insert into Authors (id, CREATED_AT, FIRST_NAME, LAST_NAME, UPDATED_AT) values (null, ?, ?, ?, ?) [42102-156]
+10-29 12:04:44 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+insert into Authors (id, CREATED_AT, FIRST_NAME, LAST_NAME, UPDATED_AT) values (null, ?, ?, ?, ?) [42102-156]
+10-29 12:04:45 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:04:45 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+insert into Authors (id, CREATED_AT, FIRST_NAME, LAST_NAME, UPDATED_AT) values (null, ?, ?, ?, ?) [42102-156]
+10-29 12:04:45 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+insert into Authors (id, CREATED_AT, FIRST_NAME, LAST_NAME, UPDATED_AT) values (null, ?, ?, ?, ?) [42102-156]
+10-29 12:04:45 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:04:45 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ [42102-156]
+10-29 12:04:45 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ [42102-156]
+10-29 12:04:45 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-29 12:04:45 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-29 12:04:45 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ where category0_.id=? [42102-156]
+10-29 12:04:45 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-29 12:04:45 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-29 12:04:45 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ where category0_.id=? [42102-156]
+10-29 12:04:45 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ [42102-156]
+10-29 12:04:45 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ where category0_.id=? [42102-156]
+10-29 12:04:46 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ [42102-156]
+10-29 12:04:46 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:04:46 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 12:04:46 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ [42102-156]
+10-29 12:04:46 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:04:46 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:04:46 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 12:04:46 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:04:46 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 12:04:46 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:04:46 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 12:04:47 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOK_CATEGORIES" not found; SQL statement:
+select bookcatego0_.id as id1_1_, bookcatego0_.BOOK_ID as BOOK4_1_, bookcatego0_.CATEGORY_ID as CATEGORY5_1_, bookcatego0_.CREATED_AT as CREATED2_1_, bookcatego0_.UPDATED_AT as UPDATED3_1_ from BOOK_CATEGORIES bookcatego0_ [42102-156]
+10-29 12:04:47 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOK_CATEGORIES" not found; SQL statement:
+select bookcatego0_.id as id1_1_, bookcatego0_.BOOK_ID as BOOK4_1_, bookcatego0_.CATEGORY_ID as CATEGORY5_1_, bookcatego0_.CREATED_AT as CREATED2_1_, bookcatego0_.UPDATED_AT as UPDATED3_1_ from BOOK_CATEGORIES bookcatego0_ [42102-156]
+10-29 12:04:47 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOK_CATEGORIES" not found; SQL statement:
+select bookcatego0_.id as id1_1_, bookcatego0_.BOOK_ID as BOOK4_1_, bookcatego0_.CATEGORY_ID as CATEGORY5_1_, bookcatego0_.CREATED_AT as CREATED2_1_, bookcatego0_.UPDATED_AT as UPDATED3_1_ from BOOK_CATEGORIES bookcatego0_ where bookcatego0_.id=? [42102-156]
+10-29 12:04:47 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:04:47 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ [42102-156]
+10-29 12:04:47 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:04:47 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ [42102-156]
+10-29 12:04:47 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:04:47 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ [42102-156]
+10-29 12:04:47 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:04:47 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ [42102-156]
+10-29 12:04:47 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:04:48 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:04:48 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as col_0_0_, book0_.title as col_1_0_, book0_.AUTHOR_ID as col_2_0_ from Books book0_ [42102-156]
+10-29 12:04:48 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:04:48 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:04:48 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:04:48 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOK_CATEGORIES" not found; SQL statement:
+select bookcatego0_.id as col_0_0_, bookcatego0_.BOOK_ID as col_1_0_, bookcatego0_.CATEGORY_ID as col_2_0_ from BOOK_CATEGORIES bookcatego0_ [42102-156]
+10-29 12:04:48 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:04:48 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:05:48 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select count(author0_.id) as col_0_0_ from Authors author0_ [42102-156]
+10-29 12:05:48 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select count(author0_.id) as col_0_0_ from Authors author0_ [42102-156]
+10-29 12:05:48 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select count(author0_.id) as col_0_0_ from Authors author0_ [42102-156]
+10-29 12:05:48 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select count(author0_.id) as col_0_0_ from Authors author0_ [42102-156]
+10-29 12:05:48 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:05:48 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:05:48 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:05:48 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select count(author0_.id) as col_0_0_ from Authors author0_ [42102-156]
+10-29 12:05:48 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select count(book0_.id) as col_0_0_ from Books book0_ [42102-156]
+10-29 12:05:48 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select count(book0_.id) as col_0_0_ from Books book0_ [42102-156]
+10-29 12:05:48 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:05:48 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:05:48 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ [42102-156]
+10-29 12:05:48 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select count(book0_.id) as col_0_0_ from Books book0_ [42102-156]
+10-29 12:05:48 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:05:51 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "REVIEWS" not found; SQL statement:
+select review0_.id as id1_4_, review0_.body as body2_4_, review0_.BOOK_ID as BOOK6_4_, review0_.CREATED_AT as CREATED3_4_, review0_.stars as stars4_4_, review0_.UPDATED_AT as UPDATED5_4_ from Reviews review0_ [42102-156]
+10-29 12:05:51 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:05:51 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:05:51 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "REVIEWS" not found; SQL statement:
+select review0_.id as id1_4_, review0_.body as body2_4_, review0_.BOOK_ID as BOOK6_4_, review0_.CREATED_AT as CREATED3_4_, review0_.stars as stars4_4_, review0_.UPDATED_AT as UPDATED5_4_ from Reviews review0_ [42102-156]
+10-29 12:05:51 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "REVIEWS" not found; SQL statement:
+select review0_.id as id1_4_, review0_.body as body2_4_, review0_.BOOK_ID as BOOK6_4_, review0_.CREATED_AT as CREATED3_4_, review0_.stars as stars4_4_, review0_.UPDATED_AT as UPDATED5_4_ from Reviews review0_ where review0_.id=? [42102-156]
+10-29 12:05:52 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 12:05:52 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 12:05:52 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:05:52 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+insert into Authors (id, CREATED_AT, FIRST_NAME, LAST_NAME, UPDATED_AT) values (null, ?, ?, ?, ?) [42102-156]
+10-29 12:05:52 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+insert into Authors (id, CREATED_AT, FIRST_NAME, LAST_NAME, UPDATED_AT) values (null, ?, ?, ?, ?) [42102-156]
+10-29 12:05:52 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:05:52 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+insert into Authors (id, CREATED_AT, FIRST_NAME, LAST_NAME, UPDATED_AT) values (null, ?, ?, ?, ?) [42102-156]
+10-29 12:05:52 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+insert into Authors (id, CREATED_AT, FIRST_NAME, LAST_NAME, UPDATED_AT) values (null, ?, ?, ?, ?) [42102-156]
+10-29 12:05:52 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:05:53 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ [42102-156]
+10-29 12:05:53 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ [42102-156]
+10-29 12:05:53 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-29 12:05:53 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-29 12:05:53 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ where category0_.id=? [42102-156]
+10-29 12:05:53 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-29 12:05:53 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-29 12:05:53 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ where category0_.id=? [42102-156]
+10-29 12:05:53 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ [42102-156]
+10-29 12:05:53 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ where category0_.id=? [42102-156]
+10-29 12:05:53 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ [42102-156]
+10-29 12:05:54 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:05:54 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 12:05:54 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ [42102-156]
+10-29 12:05:54 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:05:54 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:05:54 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 12:05:54 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:05:54 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 12:05:54 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:05:54 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 12:05:54 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOK_CATEGORIES" not found; SQL statement:
+select bookcatego0_.id as id1_1_, bookcatego0_.BOOK_ID as BOOK4_1_, bookcatego0_.CATEGORY_ID as CATEGORY5_1_, bookcatego0_.CREATED_AT as CREATED2_1_, bookcatego0_.UPDATED_AT as UPDATED3_1_ from BOOK_CATEGORIES bookcatego0_ [42102-156]
+10-29 12:05:54 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOK_CATEGORIES" not found; SQL statement:
+select bookcatego0_.id as id1_1_, bookcatego0_.BOOK_ID as BOOK4_1_, bookcatego0_.CATEGORY_ID as CATEGORY5_1_, bookcatego0_.CREATED_AT as CREATED2_1_, bookcatego0_.UPDATED_AT as UPDATED3_1_ from BOOK_CATEGORIES bookcatego0_ [42102-156]
+10-29 12:05:54 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOK_CATEGORIES" not found; SQL statement:
+select bookcatego0_.id as id1_1_, bookcatego0_.BOOK_ID as BOOK4_1_, bookcatego0_.CATEGORY_ID as CATEGORY5_1_, bookcatego0_.CREATED_AT as CREATED2_1_, bookcatego0_.UPDATED_AT as UPDATED3_1_ from BOOK_CATEGORIES bookcatego0_ where bookcatego0_.id=? [42102-156]
+10-29 12:05:54 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:05:54 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ [42102-156]
+10-29 12:05:54 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:05:54 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ [42102-156]
+10-29 12:05:54 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:05:54 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ [42102-156]
+10-29 12:05:54 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:05:54 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ [42102-156]
+10-29 12:05:55 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:05:55 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:05:55 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as col_0_0_, book0_.title as col_1_0_, book0_.AUTHOR_ID as col_2_0_ from Books book0_ [42102-156]
+10-29 12:05:55 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:05:55 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:05:55 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:05:56 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOK_CATEGORIES" not found; SQL statement:
+select bookcatego0_.id as col_0_0_, bookcatego0_.BOOK_ID as col_1_0_, bookcatego0_.CATEGORY_ID as col_2_0_ from BOOK_CATEGORIES bookcatego0_ [42102-156]
+10-29 12:05:56 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:05:56 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:05:56 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:05:56 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:05:56 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOK_CATEGORIES" not found; SQL statement:
+select bookcatego0_.id as col_0_0_, bookcatego0_.BOOK_ID as col_1_0_, bookcatego0_.CATEGORY_ID as col_2_0_ from BOOK_CATEGORIES bookcatego0_ [42102-156]
+10-29 12:05:56 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOK_CATEGORIES" not found; SQL statement:
+select bookcatego0_.id as id1_1_, bookcatego0_.BOOK_ID as BOOK4_1_, bookcatego0_.CATEGORY_ID as CATEGORY5_1_, bookcatego0_.CREATED_AT as CREATED2_1_, bookcatego0_.UPDATED_AT as UPDATED3_1_ from BOOK_CATEGORIES bookcatego0_ where bookcatego0_.id=? [42102-156]
+10-29 12:05:56 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOK_CATEGORIES" not found; SQL statement:
+select bookcatego0_.id as col_0_0_, bookcatego0_.BOOK_ID as col_1_0_, bookcatego0_.CATEGORY_ID as col_2_0_ from BOOK_CATEGORIES bookcatego0_ [42102-156]
+10-29 12:05:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 12:05:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+insert into Authors (id, CREATED_AT, FIRST_NAME, LAST_NAME, UPDATED_AT) values (null, ?, ?, ?, ?) [42102-156]
+10-29 12:05:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+insert into Authors (id, CREATED_AT, FIRST_NAME, LAST_NAME, UPDATED_AT) values (null, ?, ?, ?, ?) [42102-156]
+10-29 12:05:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:05:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+insert into Authors (id, CREATED_AT, FIRST_NAME, LAST_NAME, UPDATED_AT) values (null, ?, ?, ?, ?) [42102-156]
+10-29 12:05:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+insert into Authors (id, CREATED_AT, FIRST_NAME, LAST_NAME, UPDATED_AT) values (null, ?, ?, ?, ?) [42102-156]
+10-29 12:05:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:05:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 12:05:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:05:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 12:05:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ [42102-156]
+10-29 12:05:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ where category0_.id=? [42102-156]
+10-29 12:05:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-29 12:05:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-29 12:05:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-29 12:05:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-29 12:05:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ where category0_.id=? [42102-156]
+10-29 12:05:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ [42102-156]
+10-29 12:05:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ where category0_.id=? [42102-156]
+10-29 12:05:58 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ [42102-156]
+10-29 12:06:22 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select count(author0_.id) as col_0_0_ from Authors author0_ [42102-156]
+10-29 12:06:22 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select count(author0_.id) as col_0_0_ from Authors author0_ [42102-156]
+10-29 12:06:22 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select count(author0_.id) as col_0_0_ from Authors author0_ [42102-156]
+10-29 12:06:22 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:06:22 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:06:22 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:06:22 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select count(author0_.id) as col_0_0_ from Authors author0_ [42102-156]
+10-29 12:06:22 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select count(author0_.id) as col_0_0_ from Authors author0_ [42102-156]
+10-29 12:06:22 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select count(book0_.id) as col_0_0_ from Books book0_ [42102-156]
+10-29 12:06:22 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select count(book0_.id) as col_0_0_ from Books book0_ [42102-156]
+10-29 12:06:22 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:06:22 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:06:22 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ [42102-156]
+10-29 12:06:23 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select count(book0_.id) as col_0_0_ from Books book0_ [42102-156]
+10-29 12:06:23 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:06:25 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "REVIEWS" not found; SQL statement:
+select review0_.id as id1_4_, review0_.body as body2_4_, review0_.BOOK_ID as BOOK6_4_, review0_.CREATED_AT as CREATED3_4_, review0_.stars as stars4_4_, review0_.UPDATED_AT as UPDATED5_4_ from Reviews review0_ [42102-156]
+10-29 12:06:25 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:06:25 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:06:25 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "REVIEWS" not found; SQL statement:
+select review0_.id as id1_4_, review0_.body as body2_4_, review0_.BOOK_ID as BOOK6_4_, review0_.CREATED_AT as CREATED3_4_, review0_.stars as stars4_4_, review0_.UPDATED_AT as UPDATED5_4_ from Reviews review0_ [42102-156]
+10-29 12:06:26 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "REVIEWS" not found; SQL statement:
+select review0_.id as id1_4_, review0_.body as body2_4_, review0_.BOOK_ID as BOOK6_4_, review0_.CREATED_AT as CREATED3_4_, review0_.stars as stars4_4_, review0_.UPDATED_AT as UPDATED5_4_ from Reviews review0_ where review0_.id=? [42102-156]
+10-29 12:06:26 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 12:06:26 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 12:06:26 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:06:26 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+insert into Authors (id, CREATED_AT, FIRST_NAME, LAST_NAME, UPDATED_AT) values (null, ?, ?, ?, ?) [42102-156]
+10-29 12:06:26 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+insert into Authors (id, CREATED_AT, FIRST_NAME, LAST_NAME, UPDATED_AT) values (null, ?, ?, ?, ?) [42102-156]
+10-29 12:06:26 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:06:26 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+insert into Authors (id, CREATED_AT, FIRST_NAME, LAST_NAME, UPDATED_AT) values (null, ?, ?, ?, ?) [42102-156]
+10-29 12:06:26 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+insert into Authors (id, CREATED_AT, FIRST_NAME, LAST_NAME, UPDATED_AT) values (null, ?, ?, ?, ?) [42102-156]
+10-29 12:06:26 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:06:27 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ [42102-156]
+10-29 12:06:27 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ [42102-156]
+10-29 12:06:27 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-29 12:06:27 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-29 12:06:27 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ where category0_.id=? [42102-156]
+10-29 12:06:27 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-29 12:06:27 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-29 12:06:27 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ where category0_.id=? [42102-156]
+10-29 12:06:27 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ [42102-156]
+10-29 12:06:27 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ where category0_.id=? [42102-156]
+10-29 12:06:28 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ [42102-156]
+10-29 12:06:28 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:06:28 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 12:06:28 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ [42102-156]
+10-29 12:06:28 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:06:28 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:06:28 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 12:06:28 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:06:28 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 12:06:28 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:06:28 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 12:06:28 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOK_CATEGORIES" not found; SQL statement:
+select bookcatego0_.id as id1_1_, bookcatego0_.BOOK_ID as BOOK4_1_, bookcatego0_.CATEGORY_ID as CATEGORY5_1_, bookcatego0_.CREATED_AT as CREATED2_1_, bookcatego0_.UPDATED_AT as UPDATED3_1_ from BOOK_CATEGORIES bookcatego0_ [42102-156]
+10-29 12:06:28 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOK_CATEGORIES" not found; SQL statement:
+select bookcatego0_.id as id1_1_, bookcatego0_.BOOK_ID as BOOK4_1_, bookcatego0_.CATEGORY_ID as CATEGORY5_1_, bookcatego0_.CREATED_AT as CREATED2_1_, bookcatego0_.UPDATED_AT as UPDATED3_1_ from BOOK_CATEGORIES bookcatego0_ [42102-156]
+10-29 12:06:28 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOK_CATEGORIES" not found; SQL statement:
+select bookcatego0_.id as id1_1_, bookcatego0_.BOOK_ID as BOOK4_1_, bookcatego0_.CATEGORY_ID as CATEGORY5_1_, bookcatego0_.CREATED_AT as CREATED2_1_, bookcatego0_.UPDATED_AT as UPDATED3_1_ from BOOK_CATEGORIES bookcatego0_ where bookcatego0_.id=? [42102-156]
+10-29 12:06:28 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:06:28 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ [42102-156]
+10-29 12:06:28 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:06:28 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ [42102-156]
+10-29 12:06:28 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:06:28 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ [42102-156]
+10-29 12:06:28 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:06:28 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ [42102-156]
+10-29 12:06:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:06:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:06:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as col_0_0_, book0_.title as col_1_0_, book0_.AUTHOR_ID as col_2_0_ from Books book0_ [42102-156]
+10-29 12:06:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:06:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:06:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:06:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOK_CATEGORIES" not found; SQL statement:
+select bookcatego0_.id as col_0_0_, bookcatego0_.BOOK_ID as col_1_0_, bookcatego0_.CATEGORY_ID as col_2_0_ from BOOK_CATEGORIES bookcatego0_ [42102-156]
+10-29 12:06:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:06:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:06:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:06:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:06:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOK_CATEGORIES" not found; SQL statement:
+select bookcatego0_.id as col_0_0_, bookcatego0_.BOOK_ID as col_1_0_, bookcatego0_.CATEGORY_ID as col_2_0_ from BOOK_CATEGORIES bookcatego0_ [42102-156]
+10-29 12:06:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOK_CATEGORIES" not found; SQL statement:
+select bookcatego0_.id as id1_1_, bookcatego0_.BOOK_ID as BOOK4_1_, bookcatego0_.CATEGORY_ID as CATEGORY5_1_, bookcatego0_.CREATED_AT as CREATED2_1_, bookcatego0_.UPDATED_AT as UPDATED3_1_ from BOOK_CATEGORIES bookcatego0_ where bookcatego0_.id=? [42102-156]
+10-29 12:06:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOK_CATEGORIES" not found; SQL statement:
+select bookcatego0_.id as col_0_0_, bookcatego0_.BOOK_ID as col_1_0_, bookcatego0_.CATEGORY_ID as col_2_0_ from BOOK_CATEGORIES bookcatego0_ [42102-156]
+10-29 12:06:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 12:06:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+insert into Authors (id, CREATED_AT, FIRST_NAME, LAST_NAME, UPDATED_AT) values (null, ?, ?, ?, ?) [42102-156]
+10-29 12:06:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+insert into Authors (id, CREATED_AT, FIRST_NAME, LAST_NAME, UPDATED_AT) values (null, ?, ?, ?, ?) [42102-156]
+10-29 12:06:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:06:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+insert into Authors (id, CREATED_AT, FIRST_NAME, LAST_NAME, UPDATED_AT) values (null, ?, ?, ?, ?) [42102-156]
+10-29 12:06:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+insert into Authors (id, CREATED_AT, FIRST_NAME, LAST_NAME, UPDATED_AT) values (null, ?, ?, ?, ?) [42102-156]
+10-29 12:06:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:06:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 12:06:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:06:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 12:06:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ [42102-156]
+10-29 12:06:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ where category0_.id=? [42102-156]
+10-29 12:06:32 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-29 12:06:32 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-29 12:06:32 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-29 12:06:32 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-29 12:06:32 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ where category0_.id=? [42102-156]
+10-29 12:06:32 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ [42102-156]
+10-29 12:06:32 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ where category0_.id=? [42102-156]
+10-29 12:06:32 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ [42102-156]
+10-29 12:08:23 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select count(author0_.id) as col_0_0_ from Authors author0_ [42102-156]
+10-29 12:08:23 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select count(author0_.id) as col_0_0_ from Authors author0_ [42102-156]
+10-29 12:08:23 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select count(author0_.id) as col_0_0_ from Authors author0_ [42102-156]
+10-29 12:08:23 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:08:23 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:08:23 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:08:23 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select count(author0_.id) as col_0_0_ from Authors author0_ [42102-156]
+10-29 12:08:23 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select count(author0_.id) as col_0_0_ from Authors author0_ [42102-156]
+10-29 12:08:24 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select count(book0_.id) as col_0_0_ from Books book0_ [42102-156]
+10-29 12:08:24 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select count(book0_.id) as col_0_0_ from Books book0_ [42102-156]
+10-29 12:08:24 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:08:24 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:08:24 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ [42102-156]
+10-29 12:08:24 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select count(book0_.id) as col_0_0_ from Books book0_ [42102-156]
+10-29 12:08:24 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:08:27 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "REVIEWS" not found; SQL statement:
+select review0_.id as id1_4_, review0_.body as body2_4_, review0_.BOOK_ID as BOOK6_4_, review0_.CREATED_AT as CREATED3_4_, review0_.stars as stars4_4_, review0_.UPDATED_AT as UPDATED5_4_ from Reviews review0_ [42102-156]
+10-29 12:08:27 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:08:27 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:08:27 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "REVIEWS" not found; SQL statement:
+select review0_.id as id1_4_, review0_.body as body2_4_, review0_.BOOK_ID as BOOK6_4_, review0_.CREATED_AT as CREATED3_4_, review0_.stars as stars4_4_, review0_.UPDATED_AT as UPDATED5_4_ from Reviews review0_ [42102-156]
+10-29 12:08:27 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "REVIEWS" not found; SQL statement:
+select review0_.id as id1_4_, review0_.body as body2_4_, review0_.BOOK_ID as BOOK6_4_, review0_.CREATED_AT as CREATED3_4_, review0_.stars as stars4_4_, review0_.UPDATED_AT as UPDATED5_4_ from Reviews review0_ where review0_.id=? [42102-156]
+10-29 12:08:27 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:08:27 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+insert into Authors (id, CREATED_AT, FIRST_NAME, LAST_NAME, UPDATED_AT) values (null, ?, ?, ?, ?) [42102-156]
+10-29 12:08:27 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+insert into Authors (id, CREATED_AT, FIRST_NAME, LAST_NAME, UPDATED_AT) values (null, ?, ?, ?, ?) [42102-156]
+10-29 12:08:28 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:08:28 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 12:08:28 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 12:08:28 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:08:28 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+insert into Authors (id, CREATED_AT, FIRST_NAME, LAST_NAME, UPDATED_AT) values (null, ?, ?, ?, ?) [42102-156]
+10-29 12:08:28 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+insert into Authors (id, CREATED_AT, FIRST_NAME, LAST_NAME, UPDATED_AT) values (null, ?, ?, ?, ?) [42102-156]
+10-29 12:08:28 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ [42102-156]
+10-29 12:08:28 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-29 12:08:28 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-29 12:08:28 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ where category0_.id=? [42102-156]
+10-29 12:08:28 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-29 12:08:28 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-29 12:08:28 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ where category0_.id=? [42102-156]
+10-29 12:08:28 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ [42102-156]
+10-29 12:08:28 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ where category0_.id=? [42102-156]
+10-29 12:08:28 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ [42102-156]
+10-29 12:08:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:08:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 12:08:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:08:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 12:08:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ [42102-156]
+10-29 12:08:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:08:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 12:08:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ [42102-156]
+10-29 12:08:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:08:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:08:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 12:08:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:08:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ [42102-156]
+10-29 12:08:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:08:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ [42102-156]
+10-29 12:08:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:08:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ [42102-156]
+10-29 12:08:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOK_CATEGORIES" not found; SQL statement:
+select bookcatego0_.id as id1_1_, bookcatego0_.BOOK_ID as BOOK4_1_, bookcatego0_.CATEGORY_ID as CATEGORY5_1_, bookcatego0_.CREATED_AT as CREATED2_1_, bookcatego0_.UPDATED_AT as UPDATED3_1_ from BOOK_CATEGORIES bookcatego0_ [42102-156]
+10-29 12:08:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOK_CATEGORIES" not found; SQL statement:
+select bookcatego0_.id as id1_1_, bookcatego0_.BOOK_ID as BOOK4_1_, bookcatego0_.CATEGORY_ID as CATEGORY5_1_, bookcatego0_.CREATED_AT as CREATED2_1_, bookcatego0_.UPDATED_AT as UPDATED3_1_ from BOOK_CATEGORIES bookcatego0_ [42102-156]
+10-29 12:08:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOK_CATEGORIES" not found; SQL statement:
+select bookcatego0_.id as id1_1_, bookcatego0_.BOOK_ID as BOOK4_1_, bookcatego0_.CATEGORY_ID as CATEGORY5_1_, bookcatego0_.CREATED_AT as CREATED2_1_, bookcatego0_.UPDATED_AT as UPDATED3_1_ from BOOK_CATEGORIES bookcatego0_ where bookcatego0_.id=? [42102-156]
+10-29 12:08:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:08:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ [42102-156]
+10-29 12:08:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:08:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:08:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as col_0_0_, book0_.title as col_1_0_, book0_.AUTHOR_ID as col_2_0_ from Books book0_ [42102-156]
+10-29 12:08:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:08:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:08:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:08:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOK_CATEGORIES" not found; SQL statement:
+select bookcatego0_.id as col_0_0_, bookcatego0_.BOOK_ID as col_1_0_, bookcatego0_.CATEGORY_ID as col_2_0_ from BOOK_CATEGORIES bookcatego0_ [42102-156]
+10-29 12:08:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:08:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:08:32 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:08:32 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 12:08:32 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOK_CATEGORIES" not found; SQL statement:
+select bookcatego0_.id as col_0_0_, bookcatego0_.BOOK_ID as col_1_0_, bookcatego0_.CATEGORY_ID as col_2_0_ from BOOK_CATEGORIES bookcatego0_ [42102-156]
+10-29 12:08:32 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOK_CATEGORIES" not found; SQL statement:
+select bookcatego0_.id as id1_1_, bookcatego0_.BOOK_ID as BOOK4_1_, bookcatego0_.CATEGORY_ID as CATEGORY5_1_, bookcatego0_.CREATED_AT as CREATED2_1_, bookcatego0_.UPDATED_AT as UPDATED3_1_ from BOOK_CATEGORIES bookcatego0_ where bookcatego0_.id=? [42102-156]
+10-29 12:08:32 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOK_CATEGORIES" not found; SQL statement:
+select bookcatego0_.id as col_0_0_, bookcatego0_.BOOK_ID as col_1_0_, bookcatego0_.CATEGORY_ID as col_2_0_ from BOOK_CATEGORIES bookcatego0_ [42102-156]
+10-29 12:08:32 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 12:08:32 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+insert into Authors (id, CREATED_AT, FIRST_NAME, LAST_NAME, UPDATED_AT) values (null, ?, ?, ?, ?) [42102-156]
+10-29 12:08:32 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+insert into Authors (id, CREATED_AT, FIRST_NAME, LAST_NAME, UPDATED_AT) values (null, ?, ?, ?, ?) [42102-156]
+10-29 12:08:32 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:08:32 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+insert into Authors (id, CREATED_AT, FIRST_NAME, LAST_NAME, UPDATED_AT) values (null, ?, ?, ?, ?) [42102-156]
+10-29 12:08:32 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+insert into Authors (id, CREATED_AT, FIRST_NAME, LAST_NAME, UPDATED_AT) values (null, ?, ?, ?, ?) [42102-156]
+10-29 12:08:32 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:08:32 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 12:08:32 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 12:08:32 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ [42102-156]
+10-29 12:08:33 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ [42102-156]
+10-29 12:08:33 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ where category0_.id=? [42102-156]
+10-29 12:08:33 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-29 12:08:33 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-29 12:08:33 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-29 12:08:33 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-29 12:08:33 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ where category0_.id=? [42102-156]
+10-29 12:08:33 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ [42102-156]
+10-29 12:08:33 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ where category0_.id=? [42102-156]
+10-29 12:08:33 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ [42102-156]
+10-29 15:00:33 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "REVIEWS" not found; SQL statement:
+select review0_.id as id1_4_, review0_.body as body2_4_, review0_.BOOK_ID as BOOK6_4_, review0_.CREATED_AT as CREATED3_4_, review0_.stars as stars4_4_, review0_.UPDATED_AT as UPDATED5_4_ from Reviews review0_ [42102-156]
+10-29 15:00:33 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "REVIEWS" not found; SQL statement:
+select count(review0_.id) as col_0_0_ from Reviews review0_ [42102-156]
+10-29 15:00:33 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 15:00:33 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "REVIEWS" not found; SQL statement:
+select count(review0_.id) as col_0_0_ from Reviews review0_ [42102-156]
+10-29 15:42:31 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select count(author0_.id) as col_0_0_ from Authors author0_ [42102-156]
+10-29 15:42:31 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select count(author0_.id) as col_0_0_ from Authors author0_ [42102-156]
+10-29 15:42:31 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select count(author0_.id) as col_0_0_ from Authors author0_ [42102-156]
+10-29 15:42:31 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 15:42:31 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 15:42:31 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 15:42:31 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select count(author0_.id) as col_0_0_ from Authors author0_ [42102-156]
+10-29 15:42:31 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select count(author0_.id) as col_0_0_ from Authors author0_ [42102-156]
+10-29 15:42:31 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 15:42:31 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORS" not found; SQL statement:
+select author0_.id as id1_0_, author0_.CREATED_AT as CREATED2_0_, author0_.FIRST_NAME as FIRST3_0_, author0_.LAST_NAME as LAST4_0_, author0_.UPDATED_AT as UPDATED5_0_ from Authors author0_ where author0_.id=? [42102-156]
+10-29 15:42:31 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ where book0_.id=? [42102-156]
+10-29 15:42:31 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOKS" not found; SQL statement:
+select book0_.id as id1_2_, book0_.AUTHOR_ID as AUTHOR5_2_, book0_.CREATED_AT as CREATED2_2_, book0_.title as title3_2_, book0_.UPDATED_AT as UPDATED4_2_ from Books book0_ [42102-156]
+10-30 11:00:39 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ [42102-156]
+10-30 11:00:39 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-30 11:00:39 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+insert into Categories (id, CREATED_AT, title, UPDATED_AT) values (null, ?, ?, ?) [42102-156]
+10-30 11:00:39 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select count(category0_.id) as col_0_0_ from Categories category0_ [42102-156]
+10-30 11:00:39 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ where category0_.id=? [42102-156]
+10-30 11:00:39 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ where category0_.id=? [42102-156]
+10-30 11:00:39 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select category0_.id as id1_3_, category0_.CREATED_AT as CREATED2_3_, category0_.title as title3_3_, category0_.UPDATED_AT as UPDATED4_3_ from Categories category0_ where category0_.id=? [42102-156]
+10-30 11:00:39 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select count(category0_.id) as col_0_0_ from Categories category0_ [42102-156]
+10-30 11:00:39 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATEGORIES" not found; SQL statement:
+select count(category0_.id) as col_0_0_ from Categories category0_ [42102-156]
