@@ -25,8 +25,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  *
- * @author
- * mwave
+ * @author lorinpa
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = AppConfig.class)
@@ -35,41 +34,40 @@ public class TestAuthorRepository extends TestCase {
 
     @Autowired
     private AuthorsRepository authorRepo;
-   
+
     // used to seed values
     private static String className;
-    
+
     // used for list test
     private static int MARK_TWAIN_ID;
-    
-    // ADD record 
+
+    // ADD record
     private static int TEST_AUTHOR_ADD_ID;
-    
+
     // DELETE record
-      private static int TEST_AUTHOR_DELETE_ID;
-      // used to MODIFY -- 
-     private static int TEST_AUTHOR_MODIFY_ID;
+    private static int TEST_AUTHOR_DELETE_ID;
+    // used to MODIFY --
+    private static int TEST_AUTHOR_MODIFY_ID;
 
     @BeforeClass
     public static void setUpClass() {
 
-   
-        MARK_TWAIN_ID = CaseGen.getInstance().getTestAuthor(CaseGen.MARK,CaseGen.TWAIN);
-       
+        MARK_TWAIN_ID = CaseGen.getInstance().getTestAuthor(CaseGen.MARK, CaseGen.TWAIN);
+
         if (className == null) {
             className = "TestAuthorRepository";
         }
-       TEST_AUTHOR_DELETE_ID = CaseGen.getInstance().createTestAuthor( new Date().getTime()+"", className);
-        TEST_AUTHOR_MODIFY_ID=  CaseGen.getInstance().createTestAuthor( new Date().getTime()+"", className);
+        TEST_AUTHOR_DELETE_ID = CaseGen.getInstance().createTestAuthor(new Date().getTime() + "", className);
+        TEST_AUTHOR_MODIFY_ID = CaseGen.getInstance().createTestAuthor(new Date().getTime() + "", className);
     }
 
     @AfterClass
     public static void tearDownClass() {
-       CaseGen.getInstance().deleteTestBook(TEST_AUTHOR_DELETE_ID);
-       CaseGen.getInstance().deleteTestBook(TEST_AUTHOR_MODIFY_ID);
-       CaseGen.getInstance().deleteTestBook(TEST_AUTHOR_ADD_ID);
+        CaseGen.getInstance().deleteTestBook(TEST_AUTHOR_DELETE_ID);
+        CaseGen.getInstance().deleteTestBook(TEST_AUTHOR_MODIFY_ID);
+        CaseGen.getInstance().deleteTestBook(TEST_AUTHOR_ADD_ID);
     }
-    
+
     protected void setUp() throws Exception {
 
     }
@@ -80,14 +78,9 @@ public class TestAuthorRepository extends TestCase {
 
     @Test
     public void testSelectAuthors() {
-        Long current_size= authorRepo.count();
-     //   int expected_size = NUM_GENERATED_AUTHORS - 2;
         List<Author> list = authorRepo.findAll();
-        assertNotNull(list);
-        assertTrue(list.size() > 0);
-      //  assertTrue(list.size() >= expected_size);
-        assertTrue("verify list equals current repo count", list.size() == current_size.intValue());
-        // now let's verify the first record Mark Twain
+        assertNotNull("verify we have data", list);
+        assertTrue("verify we have recpords", list.size() > 0);
         Author markTwain = null;
         boolean found_record = false;
         for (Author author : list) {
@@ -102,27 +95,24 @@ public class TestAuthorRepository extends TestCase {
         assertTrue("the first record is Mark Twain -- id matches", markTwain.getId().intValue() == MARK_TWAIN_ID);
         assertTrue("the first record is Mark Twain -- first name matches", markTwain.getFirstName().equals(CaseGen.MARK));
         assertTrue("the first record is Mark Twain -- last name matches", markTwain.getLastName().equals(CaseGen.TWAIN));
-
     }
-    
-    @Test 
-        public void testSelectAuthor() {
-         boolean noErrorsFound = true;
+
+    @Test
+    public void testSelectAuthor() {
+        boolean noErrorsFound = true;
         Author markTwain = null;
-        try {    
-              markTwain =  authorRepo.findById(MARK_TWAIN_ID);
-              assertNotNull("verify mark twain not null", markTwain);
-              assertTrue("verify id", markTwain.getId().intValue() == MARK_TWAIN_ID);
+        try {
+            markTwain = authorRepo.findById(MARK_TWAIN_ID);
+            assertNotNull("verify mark twain not null", markTwain);
+            assertTrue("verify id", markTwain.getId().intValue() == MARK_TWAIN_ID);
         } catch (Exception e) {
             noErrorsFound = false;
         }
-          assertTrue("verify we didn't raise an exception", noErrorsFound);
+        assertTrue("verify we didn't raise an exception", noErrorsFound);
     }
-    
 
     @Test
     public void testAddAuthor() {
-       // Long num_records_before_add = authorRepo.count();
         boolean noErrorsFound = true;
         Author ed = new Author();
         String suffix = new Date().getTime() + "";
@@ -132,44 +122,34 @@ public class TestAuthorRepository extends TestCase {
         ed.setLastName(lastName);
         try {
             authorRepo.addNew(ed);
-         
         } catch (Exception ex) {
             noErrorsFound = false;
             Logger.getLogger(TestAuthorRepository.class.getName()).log(Level.SEVERE, null, ex);
         }
         assertTrue("verify we didn't raise an exception", noErrorsFound);
-   //     Long num_records_after_add = authorRepo.count();
         assertNotNull(ed.getId());
-        TEST_AUTHOR_ADD_ID   = ed.getId();
-      //assertTrue("verify new id is greater than our last generated test case", ed.getId().intValue() > LAST_GENERATED_AUTHOR_ID);
-   //     assertTrue("record count incremented by one", num_records_after_add == (1 + num_records_before_add));
-
+        TEST_AUTHOR_ADD_ID = ed.getId();
     }
 
     @Test
     public void testDeleteAuthor() {
-        
-       // Long num_records_before_delete =authorRepo.count();
         boolean noErrorsFound = true;
-      //  Author joeSmoe;
-        List<Author> authorListAfterDelete= null;
-
+        List<Author> authorListAfterDelete = null;
         try {
-      //      joeSmoe = (Author) authorRepo.findOne(JOE_SMOE_ID);
             authorRepo.delete(TEST_AUTHOR_DELETE_ID);
-            authorListAfterDelete= authorRepo.findAll();
+            authorListAfterDelete = authorRepo.findAll();
         } catch (Exception e) {
             noErrorsFound = false;
         }
         assertTrue("verify we didn't raise an exception", noErrorsFound);
-      //  Long  num_records_after_delete = authorRepo.count();
-      //  assertTrue("record count incremented by one", num_records_after_delete.longValue() == (num_records_before_delete.longValue() - 1));
-        // now let's verify the results of find all does not contain the deleted author
-       
-       for (Author author : authorListAfterDelete) {
-            assertTrue(author.getId().intValue() != TEST_AUTHOR_DELETE_ID);
+        boolean RECORD_FOUND = false;
+        for (Author author : authorListAfterDelete) {
+            if (author.getId().intValue() == TEST_AUTHOR_DELETE_ID) {
+                RECORD_FOUND = true;
+                break;
+            }
         }
-     
+        assertFalse("verify we did not find record ", RECORD_FOUND);
     }
 
     @Test
@@ -180,50 +160,43 @@ public class TestAuthorRepository extends TestCase {
             String suffix = new Date().getTime() + "";
             String firstName = "first" + suffix;
             String lastName = "last" + suffix;
-   
+
             Author authorAfterUpdate = authorRepo.update(authorToModify.getId(), firstName, lastName);
             assertTrue("verify updated record has original id", authorAfterUpdate.getId().intValue() == TEST_AUTHOR_MODIFY_ID);
             assertTrue("verify updated first name", authorAfterUpdate.getFirstName().equals(firstName));
             assertTrue("verify updated last name", authorAfterUpdate.getLastName().equals(lastName));
-            
         } catch (Exception ex) {
-             noErrorsFound = false;
+            noErrorsFound = false;
             Logger.getLogger(TestAuthorRepository.class.getName()).log(Level.SEVERE, null, ex);
         }
-         assertTrue("verify we didn't raise an exception", noErrorsFound);
-         
+        assertTrue("verify we didn't raise an exception", noErrorsFound);
     }
-    
-    @Test 
-     public void testUpdateDuplicate() {
+
+    @Test
+    public void testUpdateDuplicate() {
         boolean errorsFound = false;
         try {
             Author authorToModify = authorRepo.findById(new Integer(TEST_AUTHOR_MODIFY_ID));
-            Author authorAfterUpdate = authorRepo.update(authorToModify.getId(),CaseGen.MARK,CaseGen.TWAIN);
-        
-       } catch (Exception ex) {
-             errorsFound = true;
-            //Logger.getLogger(AuthorRepositoryUnitTest.class.getName()).log(Level.SEVERE, null, ex);
+            Author authorAfterUpdate = authorRepo.update(authorToModify.getId(), CaseGen.MARK, CaseGen.TWAIN);
+        } catch (Exception ex) {
+            errorsFound = true;
         }
-         assertTrue("verify we raised an exception", errorsFound);
-         // let's select the last author and verify it is not updated to Mark Twain
-         errorsFound = false; // reset for new test
-         try {
+        assertTrue("verify we raised an exception", errorsFound);
+        errorsFound = false; // reset for new assertions
+        try {
             Author lastAuthor = authorRepo.findById(new Integer(TEST_AUTHOR_MODIFY_ID));
             assertFalse("verify first name is not Mark", lastAuthor.getFirstName().equals(CaseGen.MARK));
             assertFalse("verify first name is not Mark", lastAuthor.getLastName().equals(CaseGen.TWAIN));
-       } catch (Exception ex) {
-             errorsFound = true;
+        } catch (Exception ex) {
+            errorsFound = true;
             Logger.getLogger(TestAuthorRepository.class.getName()).log(Level.SEVERE, null, ex);
         }
-          assertFalse("verify we raised no exception", errorsFound);
-     }
+        assertFalse("verify we raised no exception", errorsFound);
+    }
 
-     
-      @Test 
-     public void testAddDuplicate() {
+    @Test
+    public void testAddDuplicate() {
         boolean errorsFound = false;
-    ///    Long count_before_add_attempt = authorRepo.count();
         Author markTwain = authorRepo.findById(new Integer(MARK_TWAIN_ID));
         Author newAuthor = new Author();
         newAuthor.setFirstName(CaseGen.MARK);
@@ -231,20 +204,15 @@ public class TestAuthorRepository extends TestCase {
         try {
             authorRepo.addNew(newAuthor);
         } catch (Exception ex) {
-            errorsFound = true; 
+            errorsFound = true;
         }
-         assertTrue("verify we raised an exception", errorsFound);
-         assertTrue("author was not assigned an is", newAuthor.getId() == null);
-        //  Long count_after_add_attempt = authorRepo.count();
-        //  assertTrue(count_after_add_attempt.longValue() == count_before_add_attempt.longValue());
-     }
-     
-  
+        assertTrue("verify we raised an exception", errorsFound);
+        assertTrue("author was not assigned an is", newAuthor.getId() == null);
+    }
 
     @Test
     public void testAuthorsCount() {
         assertNotNull(authorRepo.count());
     }
 
-   
 }
