@@ -34,5 +34,10 @@ public class MessageDetailDefinitions {
     public final static String UPDATE_BOOK_CATEGORY_EXCEPTION = "Unable to Update Book Category";
     public final static String ADD_BOOK_CATEGORY_EXCEPTION = "Unable to Add Category";
     public final static String DELETE_BOOK_CATEGORY_EXCEPTION = "Unexpected Exception. Unable to Delete Book Category";
+   
+    public final static String SAVE_REVIEW_EXCEPTION = "Unexpected Exception. Unable to Save Review!";
+    public final static String UPDATE_REVIEW_EXCEPTION = "Unable to Update Review";
+    public final static String ADD_REVIEW_EXCEPTION = "Unable to Add Review";
+    public final static String DELETE_REVIEW_EXCEPTION = "Unexpected Exception. Unable to Review";
 
 }

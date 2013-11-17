@@ -14,6 +14,7 @@ import org.pa.rest.message.MessageDefinitions;
 import org.pa.rest.message.SuccessMessage;
 import org.pa.validation.CategoryValidator;
 import org.pa.entity.Category;
+import org.pa.exception.MessageDetailDefinitions;
 import org.pa.repository.CategoriesRepository;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
@@ -29,8 +30,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
  *
- * @author
- * lorinpa
+ * @author  lorinpa
  * public-action.org
  */
 
@@ -78,7 +78,7 @@ public class CategoryRest {
             BindingResult result = new MapBindingResult(validationMap, "category");
             categoryValidator.validate(category, result);
             if (result.hasErrors()) {
-                RestException re = new RestException("Unable to Add Category");
+                RestException re = new RestException(MessageDetailDefinitions.ADD_CATEGORY_EXCEPTION);
                 re.putTarget("category", category);
                 return re.exceptionMap();
             }
@@ -89,9 +89,9 @@ public class CategoryRest {
         } catch (Exception pe) {
             RestException re;
             if (pe.getCause() instanceof ConstraintViolationException) {
-                re = new RestException("Category Already Exists! Can not add again!");
+                re = new RestException(MessageDetailDefinitions.DUPLICATE_CATEGORY_EXCEPTION);
             } else {
-                re = new RestException("Unexpected Exception. Unable to Save Category!");
+                re = new RestException(MessageDetailDefinitions.SAVE_CATEGORY_EXCEPTION);
             }
             re.putTarget("category", category);
             return re.exceptionMap();
@@ -115,7 +115,7 @@ public class CategoryRest {
             BindingResult result = new MapBindingResult(validationMap, "category");
             categoryValidator.validate(category, result);
             if (result.hasErrors()) {
-                RestException re = new RestException("Unable to Update Category");
+                RestException re = new RestException(MessageDetailDefinitions.UPDATE_CATEGORY_EXCEPTION);
                 re.putTarget("category", category);
                 return re.exceptionMap();
             }
@@ -127,9 +127,9 @@ public class CategoryRest {
         } catch (Exception pe) {
             RestException re;
             if (pe.getCause() instanceof ConstraintViolationException) {
-                re = new RestException("Category Already Exists! Can not add again!");
+                re = new RestException(MessageDetailDefinitions.DUPLICATE_CATEGORY_EXCEPTION);
             } else {
-                re = new RestException("Unexpected Exception. Unable to Save Category!");
+                re = new RestException(MessageDetailDefinitions.SAVE_CATEGORY_EXCEPTION);
             }
             re.putTarget("category", category);
             return re.exceptionMap();

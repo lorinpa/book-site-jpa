@@ -12,6 +12,7 @@ import org.hibernate.exception.ConstraintViolationException;
 import org.pa.dto.ReviewExport;
 import org.pa.entity.Book;
 import org.pa.entity.Review;
+import org.pa.exception.MessageDetailDefinitions;
 import org.pa.exception.RestException;
 import org.pa.repository.BooksRepository;
 import org.pa.repository.ReviewsRepository;
@@ -35,8 +36,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 /**
  *
  * @author
- * lorinpa
- * public-action.org
+ * lorinpa  public-action.org
  */
 @Controller
 public class ReviewRest {
@@ -97,12 +97,7 @@ public class ReviewRest {
             BindingResult result = new MapBindingResult(validationMap, "review");
             reviewValidator.validate(review, result);
             if (result.hasErrors()) {
-                int numerrors  = result.getErrorCount();
-                System.out.println("add review has " + numerrors + " errors");
-                System.out.println("field error : " + result.getFieldError().getField());
-                System.out.println("feild object: " + result.getFieldError().getObjectName());
-                System.out.println("default message: " + result.getFieldError().getDefaultMessage());
-                RestException re = new RestException("Unable to Add Review");
+                RestException re = new RestException(MessageDetailDefinitions.ADD_REVIEW_EXCEPTION);
                 re.putTarget("review", review);
                 return re.exceptionMap();
             }
@@ -113,11 +108,12 @@ public class ReviewRest {
                     ));
             return message;
         } catch (Exception pe) {
+            // We don't have a constraint on reviews to prevent duplicates
             RestException re;
             if (pe.getCause() instanceof ConstraintViolationException) {
-                re = new RestException("Review  Already Exists! Can not add again!");
+                re = new RestException(MessageDetailDefinitions.SAVE_REVIEW_EXCEPTION);
             } else {
-                re = new RestException("Unexpected Exception. Unable to Save Review!");
+                re = new RestException(MessageDetailDefinitions.SAVE_REVIEW_EXCEPTION);
             }
             re.putTarget("review", review);
             return re.exceptionMap();
@@ -140,7 +136,6 @@ public class ReviewRest {
             validationMap.put("id", review.getId());
             validationMap.put("body", review.getBody());
             validationMap.put("stars", review.getStars());
-            //validationMap.put("bookId", review.getBookId());
             validationMap.put("bookId.title", review.getBookId().getTitle());
             validationMap.put("bookId.authorId.lastName", review.getBookId().getAuthorId().getLastName());
             validationMap.put("bookId.authorId.firstName", review.getBookId().getAuthorId().getFirstName());
@@ -149,7 +144,7 @@ public class ReviewRest {
             BindingResult result = new MapBindingResult(validationMap, "review");
             reviewValidator.validate(review, result);
             if (result.hasErrors()) {
-                RestException re = new RestException("Unable to Update Review");
+                RestException re = new RestException(MessageDetailDefinitions.UPDATE_REVIEW_EXCEPTION);
                 re.putTarget("review", review);
                 return re.exceptionMap();
             }
@@ -161,11 +156,12 @@ public class ReviewRest {
                     ));
             return message;
         } catch (Exception pe) {
+            // We don't have duplicate costraint on reciews
             RestException re;
             if (pe.getCause() instanceof ConstraintViolationException) {
-                re = new RestException("Review Already Exists! Can not add again!");
+                re = new RestException(MessageDetailDefinitions.UPDATE_REVIEW_EXCEPTION);
             } else {
-                re = new RestException("Unexpected Exception. Unable to Save Review!");
+                re = new RestException(MessageDetailDefinitions.SAVE_REVIEW_EXCEPTION);
             }
             re.putTarget("review", review);
             return re.exceptionMap();

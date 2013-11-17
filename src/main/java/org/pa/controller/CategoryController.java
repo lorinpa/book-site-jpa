@@ -38,7 +38,7 @@ public class CategoryController {
     private final static String DEL_URL = "category/deleteCategory";
     private final static String LIST_URL = "category/categoryHome";
     private final static String REDIRECT_HOME_URL = "redirect:categoryHome.htm";
-   // private final static String JSON_EXPORT = "/category/export";
+
     
     private CategoriesRepository categoryRepo;
 

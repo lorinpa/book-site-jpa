@@ -53,9 +53,7 @@ public class ReviewValidator implements Validator {
      
         
         if (  ((Review)target).getStars() < 0 || ((Review)target).getStars() > 5) {
-          //  errors.rejectValue("stars", "Stars must be a number between 0 and 5");
               errors.rejectValue("stars", "stars");
-            
         }
         Review review = (Review) target;
         try {

@@ -14,6 +14,7 @@ import javax.persistence.PersistenceException;
 import org.hibernate.exception.ConstraintViolationException;
 import org.pa.entity.Book;
 import org.pa.entity.Review;
+import org.pa.exception.MessageDetailDefinitions;
 import org.pa.repository.BooksRepository;
 import org.pa.repository.ReviewsRepository;
 import org.pa.validation.AuthorValidator;
@@ -42,8 +43,7 @@ public class ReviewController {
 
     private ReviewsRepository reviewRepo;
     private BooksRepository bookRepo;
-  //  private EntityManagerFactory emf;
-
+ 
     private final static String ADD_URL = "review/add";
     private final static String MOD_URL = "review/edit";
     private final static String DEL_URL = "review/delete";
@@ -51,14 +51,7 @@ public class ReviewController {
     private final static String REDIRECT_HOME_URL = "redirect:list.htm";
 
 
-    /*   @Inject
-     public void setEmf(EntityManagerFactory emf) {
-     this.emf = emf;
-     bookRepo = new BooksRepositoryImpl();
-     bookRepo.setEntityManager(emf.createEntityManager());
-     reviewRepo = new ReviewsRepositoryImpl();
-     reviewRepo.setEntityManager(emf.createEntityManager());
-     }*/
+ 
     @Inject
     @Qualifier("reviewRepository")
     public void setReviewRepo(ReviewsRepository reviewRepo) {
@@ -94,10 +87,7 @@ public class ReviewController {
 
     @RequestMapping(value = MOD_URL, method = RequestMethod.POST)
     public String submitEditForm(@ModelAttribute Review review, BindingResult result, Model model) {
-
-        //  ModelAndView mav = new ModelAndView(MOD_URL);
         try {
-
             Book book = bookRepo.findById(review.getBookId().getId());
             if (book != null) {
                 review.setBookId(book);
@@ -114,8 +104,9 @@ public class ReviewController {
             reviewRepo.update(review.getId(), review.getBookId(), review.getStars(), review.getBody());
             return REDIRECT_HOME_URL;
         } catch (PersistenceException pe) {
+            // we don't have a duplicate review constraint
             if (pe.getCause() instanceof ConstraintViolationException) {
-                ObjectError oe = new ObjectError("title", "Cateogory Already Exists! Can not add again!");
+                ObjectError oe = new ObjectError("title", MessageDetailDefinitions.SAVE_REVIEW_EXCEPTION);
                 result.addError(oe);
             }
             return MOD_URL;
@@ -136,16 +127,15 @@ public class ReviewController {
     @RequestMapping(value = DEL_URL, method = RequestMethod.POST)
     public String submitDelete(@ModelAttribute Review review, BindingResult result, Model model) {
         try {
-            // unexpected quirck -- we have to retreive the whold entity before we can delete
-            //     review = reviewRepo.findById(review.getId());
             reviewRepo.delete(review);
             return REDIRECT_HOME_URL;
         } catch (PersistenceException pe) {
+               // we don't have a duplicate review constraint
             if (pe.getCause() instanceof ConstraintViolationException) {
-                ObjectError oe = new ObjectError("stars", "Constraint Violation. Unable to delete review.");
+                ObjectError oe = new ObjectError("stars", MessageDetailDefinitions.SAVE_REVIEW_EXCEPTION);
                 result.addError(oe);
             } else {
-                ObjectError oe = new ObjectError("stars", "Unexpected Database Exception. Unable to delete review.");
+                ObjectError oe = new ObjectError("stars", MessageDetailDefinitions.SAVE_REVIEW_EXCEPTION);
                 result.addError(oe);
             }
             return DEL_URL;
@@ -157,7 +147,6 @@ public class ReviewController {
 
     @RequestMapping(value = ADD_URL, method = RequestMethod.GET)
     public ModelAndView displayAdd() throws Exception {
-
         Review review = new Review();
         ModelAndView mav = new ModelAndView(ADD_URL);
         mav.addObject("review", review);
@@ -167,7 +156,6 @@ public class ReviewController {
 
     @RequestMapping(value = ADD_URL, method = RequestMethod.POST)
     public ModelAndView submitAddForm(@ModelAttribute Review review, BindingResult result, SessionStatus status) {
-
         ModelAndView mav = new ModelAndView(ADD_URL);
         try {
             Book book = bookRepo.findById(review.getBookId().getId());
@@ -186,7 +174,7 @@ public class ReviewController {
             reviewRepo.addNew(review);
             return list();
         } catch (PersistenceException pe) {
-            ObjectError oe = new ObjectError("body", "Unexpected Exception. Unable to Save Review!");
+            ObjectError oe = new ObjectError("body", MessageDetailDefinitions.SAVE_REVIEW_EXCEPTION);
             result.addError(oe);
             return mav;
         } catch (Exception ex) {
@@ -195,17 +183,7 @@ public class ReviewController {
         }
     }
 
-    /* 
-     * Unfucking real!!!! So the jsp had bookId instead of bookId.id
-     * that raised errors pointing to converters, property editors????????
-     * I had to 
-     * 1) change the "path"?????? to bookId.id (the actual key???)
-     * 2) when the form is submitted go to the db and get the book ????
-     * 3) add the book 
-     * 4) then validate
-     * ??????? 
-     * I guess that makes sense?? If verifes the review has a valid book parent?
-     */
+  
     @RequestMapping(value = LIST_URL, method = RequestMethod.GET)
     public ModelAndView list() throws Exception {
         List<Review> reviewList;

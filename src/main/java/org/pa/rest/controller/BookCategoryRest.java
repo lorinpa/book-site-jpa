@@ -13,6 +13,7 @@ import org.pa.dto.BookCategoryExport;
 import org.pa.entity.Book;
 import org.pa.entity.BookCategory;
 import org.pa.entity.Category;
+import org.pa.exception.MessageDetailDefinitions;
 import org.pa.exception.RestException;
 import org.pa.repository.BookCategoriesRepository;
 import org.pa.repository.BooksRepository;
@@ -115,7 +116,7 @@ public class BookCategoryRest {
             BindingResult result = new MapBindingResult(validationMap, "bookCategory");
             bookCategoryValidator.validate(bookCategory, result);
             if (result.hasErrors()) {
-                RestException re = new RestException("Unable to Add Book Category");
+                RestException re = new RestException(MessageDetailDefinitions.ADD_BOOK_CATEGORY_EXCEPTION);
                 re.putTarget("bookCategory", bookCategory);
                 return re.exceptionMap();
             }
@@ -128,9 +129,9 @@ public class BookCategoryRest {
         } catch (Exception pe) {
             RestException re;
             if (pe.getCause() instanceof ConstraintViolationException) {
-                re = new RestException("Book Category Already Exists! Can not add again!");
+                re = new RestException(MessageDetailDefinitions.DUPLICATE_BOOK_CATEGORY_EXCEPTION);
             } else {
-                re = new RestException("Unexpected Exception. Unable to Save Book Category!");
+                re = new RestException(MessageDetailDefinitions.SAVE_BOOK_CATEGORY_EXCEPTION);
             }
             re.putTarget("bookCategory", bookCategory);
             return re.exceptionMap();
@@ -151,8 +152,6 @@ public class BookCategoryRest {
             bookCategory.setId(id);
             Map validationMap = new HashMap();
             validationMap.put("id", bookCategory.getId());
-            //validationMap.put("bookId", bookCategory.getBookId());
-            //validationMap.put("categoryId", bookCategory.getCategoryId());
             validationMap.put("bookId.title", bookCategory.getBookId().getTitle());
             validationMap.put("bookId.authorId.lastName", bookCategory.getBookId().getAuthorId().getLastName());
             validationMap.put("bookId.authorId.firstName", bookCategory.getBookId().getAuthorId().getFirstName());
@@ -180,9 +179,9 @@ public class BookCategoryRest {
         } catch (Exception pe) {
             RestException re;
             if (pe.getCause() instanceof ConstraintViolationException) {
-                re = new RestException("Book Category Already Exists! Can not add again!");
+                re = new RestException(MessageDetailDefinitions.DUPLICATE_BOOK_CATEGORY_EXCEPTION);
             } else {
-                re = new RestException("Unexpected Exception. Unable to Save Book Category!");
+                re = new RestException(MessageDetailDefinitions.SAVE_BOOK_CATEGORY_EXCEPTION);
             }
             re.putTarget("bookCategory", bookCategory);
             return re.exceptionMap();
