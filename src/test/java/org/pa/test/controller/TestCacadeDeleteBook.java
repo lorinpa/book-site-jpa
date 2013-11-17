@@ -80,7 +80,6 @@ public class TestCacadeDeleteBook {
         TEST_CATEGORY_ID = CaseGen.getInstance().createTestCategory(new Date().getTime() + "dbcc");
         // now the test book - category
         TEST_BOOK_CATEGORY_ID = CaseGen.getInstance().createTestBookCategory(TEST_BOOK_ID, TEST_CATEGORY_ID);
-
     }
 
     @AfterClass
