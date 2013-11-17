@@ -44,18 +44,7 @@ import org.springframework.web.context.WebApplicationContext;
  *
  * @author lorinpa
  
- Note! We use our DbUtil utility to create a set of test data.
-
- DbUtil is run once during this test suite. DbUtil is run prior to any test
- in this suite.
- 
- Note!   We should have between 3 and 5 books for the duration of this suite.
- DbUtil creates 4 books.  However, we have an add book test and a delete book test.
- We don't know what sequence the tests are going to run in. Therefore, if the delete book test runs first,
- the database will only have 2 books remaining. Likewise, if the "add book" test runs first, 
- we will have 5  books in the database. 
- 
- Our delete category test deletes the 2nd books. 
+ Note! We use our CaseGen utility to create a set of test data.
 
  */
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -127,9 +116,7 @@ public class TestReviewController {
     }
 
     /*
-     *  Tests that one of the  reviews is indeed the first review (preslected during setup)
-     *   Note! Since we are NOT redirecting to category home, the internal Spring MVC view name does not include the
-     *   redirect prefix. 
+    * Tests the Author controller. Verifies the a view is dispatched with a list of Reviews.
      */
     @Test
     public void testListView() {
