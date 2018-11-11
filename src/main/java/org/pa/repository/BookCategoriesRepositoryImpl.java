@@ -30,7 +30,7 @@ public class BookCategoriesRepositoryImpl implements BookCategoriesRepository {
     @PersistenceContext
     private EntityManager entityManager;
 
-    //@Override
+    @Override
     @Transactional
     public Iterable findAll(Iterable itrbl) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -106,7 +106,7 @@ public class BookCategoriesRepositoryImpl implements BookCategoriesRepository {
 
     }
 
-    //@Override
+    @Override
     public Iterable save(Iterable itrbl) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -126,10 +126,12 @@ public class BookCategoriesRepositoryImpl implements BookCategoriesRepository {
         return bookCategory;
     }
 
+    @Override
     public void delete(Iterable itrbl) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
     public void deleteAll() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -141,10 +143,12 @@ public class BookCategoriesRepositoryImpl implements BookCategoriesRepository {
         return s;
     }
 
+    @Override
     public Object save(Object arg0) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
     @Transactional
     public void delete(Serializable id) {
         BookCategory bookCat = (BookCategory) id;
@@ -158,6 +162,7 @@ public class BookCategoriesRepositoryImpl implements BookCategoriesRepository {
         }
     }
 
+    @Override
     @Transactional
     public void delete(Object entity) {
           BookCategory bookCat = (BookCategory) entity;
@@ -170,8 +175,7 @@ public class BookCategoriesRepositoryImpl implements BookCategoriesRepository {
             entityManager.remove(bookCat);
         }
     }
-    
-    @Transactional
+      @Transactional
     public void delete(Integer book_id) {
         BookCategory bookCat = this.findById(book_id);
         if (bookCat != null) {

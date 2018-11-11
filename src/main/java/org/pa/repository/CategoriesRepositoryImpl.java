@@ -42,6 +42,7 @@ public class CategoriesRepositoryImpl implements CategoriesRepository {
         Query q = entityManager.createQuery("select a from Category a");
         List<Category> list = q.getResultList();
         return list;
+
     }
 
     @Transactional
@@ -51,6 +52,7 @@ public class CategoriesRepositoryImpl implements CategoriesRepository {
         return (Category) q.getSingleResult();
     }
 
+    @Override
     @Transactional
     public Object findOne(Serializable id) {
         Query q = entityManager.createQuery("select a from Category a where a.id = ?1");
@@ -58,6 +60,7 @@ public class CategoriesRepositoryImpl implements CategoriesRepository {
         return q.getSingleResult();
     }
 
+    @Override
     public Iterable save(Iterable itrbl) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -75,10 +78,12 @@ public class CategoriesRepositoryImpl implements CategoriesRepository {
         return found;
     }
 
+    @Override
     public Iterable findAll(Iterable itrbl) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
     @Transactional
     public long count() {
         return (Long) entityManager.createQuery("Select count(a.id) from Category a").getSingleResult();
@@ -103,10 +108,12 @@ public class CategoriesRepositoryImpl implements CategoriesRepository {
         }
     } 
 
+    @Override
     public void delete(Iterable itrbl) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
     public void deleteAll() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -118,17 +125,21 @@ public class CategoriesRepositoryImpl implements CategoriesRepository {
         return s;
     }
 
+    @Override
     public Object save(Object arg0) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
     @Transactional
     public void delete(Serializable id) {
         entityManager.remove(id);
     }
 
+    @Override
     @Transactional
     public void delete(Object entity) {
         entityManager.remove(entity);
+
     }
 }

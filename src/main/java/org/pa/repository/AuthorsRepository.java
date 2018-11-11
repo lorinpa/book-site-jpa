@@ -3,6 +3,7 @@ package org.pa.repository;
 import java.io.Serializable;
 import java.util.List;
 import org.pa.entity.Author;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -10,8 +11,8 @@ import org.springframework.stereotype.Repository;
  * @author
  * mwave
  */
-@Repository  
-public interface AuthorsRepository  {
+@Repository
+public interface AuthorsRepository extends CrudRepository {
 
     public Object addNew(Object s) throws Exception;
 

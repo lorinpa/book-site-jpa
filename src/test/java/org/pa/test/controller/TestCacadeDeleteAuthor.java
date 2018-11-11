@@ -38,13 +38,14 @@ import org.springframework.web.context.WebApplicationContext;
 /**
  *
  * @author lorinpa public-action.org
- *
- * Tests views dispatched after a delete of an author.  *
- * Books, Reviews and BooKCategories are all dependent on the existence of an
- * Author. A book must have an author. A review must pertain to a book A book
- * category must also pertain to a book. Thus, if the author is deleted, any
- * corresponding books, reviews and book categories must also be deleted.
- *
+     
+ Tests views dispatched after a delete of an author. 
+  
+ Books, Reviews and BooKCategories are all dependent on  the existence of an Author. 
+ A book must have an author. A review must pertain to a book A book category must also 
+ pertain to a book. Thus, if the author is deleted, any corresponding books, reviews and 
+ book categories must also be deleted.
+ *  
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
@@ -148,7 +149,7 @@ public class TestCacadeDeleteAuthor {
             assertTrue("verify we have authors", list.size() > 0);
             RECORD_FOUND = false;
             for (Author author : list) {
-                if (author.getId() == TEST_AUTHOR_ID) {
+                if (author.getId().intValue() == TEST_AUTHOR_ID) {
                     RECORD_FOUND = true;
                     break;
                 }
@@ -219,10 +220,10 @@ public class TestCacadeDeleteAuthor {
                     .andExpect(forwardedUrl("/WEB-INF/views/review/list.jsp"));
 
             List<Review> list = (List<Review>) requestResult.andReturn().getModelAndView().getModelMap().get("list");
-            assertTrue("verify we have records", list.size() > 0);
-            RECORD_FOUND = false;
+            assertTrue("verify we have records", list.size() >  0);
+             RECORD_FOUND = false;
             for (Review review : list) {
-                if (review.getBookId().getId() == TEST_BOOK_ID) {
+                if (review.getBookId().getId().intValue() == TEST_BOOK_ID) {
                     RECORD_FOUND = true;
                     break;
                 }

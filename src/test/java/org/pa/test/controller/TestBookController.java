@@ -15,10 +15,12 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.Assert.*;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito.*;
 import org.pa.AppConfig;
 import org.pa.dbutil.CaseGen;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,19 +36,21 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+//import org.pa.dbutil.DbUtil;
 import org.pa.entity.Book;
 
 import org.pa.exception.MessageDetailDefinitions;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
+
 import org.springframework.web.context.WebApplicationContext;
 
 /**
  *
  * @author lorinpa
- *
- * Note! We use our CaseGen utility to create a set of test data
- *
+ 
+ Note! We use our CaseGen utility to create a set of test data
+
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
@@ -96,7 +100,9 @@ public class TestBookController {
         }
         // use an op in the name
         TEST_BOOK_ID_MODIFY = CaseGen.getInstance().createTestBook("M" + className + new Date().getTime(), JOE_SMOE_ID);
+
         TEST_BOOK_ID_DELETE = CaseGen.getInstance().createTestBook("D" + className + new Date().getTime(), JOE_SMOE_ID);
+
     }
 
     @AfterClass
@@ -125,14 +131,14 @@ public class TestBookController {
 
             ResultActions requestResult
                     = this.mockMvc.perform(get("/book/list.htm"))
-                            .andExpect(view().name("book/list"))
-                            .andExpect(model().attributeExists("list"))
-                            .andExpect(forwardedUrl("/WEB-INF/views/book/list.jsp"));
+                    .andExpect(view().name("book/list"))
+                    .andExpect(model().attributeExists("list"))
+                    .andExpect(forwardedUrl("/WEB-INF/views/book/list.jsp"));
             List<Book> list = (List<Book>) requestResult.andReturn().getModelAndView().getModelMap().get("list");
             assertTrue("verify we have records ", (list.size() > 0));
             boolean RECORD_FOUND = false;
             for (Book book : list) {
-                if (book.getId() == HUCLEBERRY_FINN_BOOK_ID) {
+                if (book.getId().intValue() == HUCLEBERRY_FINN_BOOK_ID) {
                     RECORD_FOUND = true;
                     break;
                 }
@@ -199,7 +205,7 @@ public class TestBookController {
             Book bookResult = (Book) andExpect.andReturn().getModelAndView().getModelMap().get("book");
             assertTrue("verify title updated", bookResult.getTitle().equals(testTitle));
             // Note! We need to test the int value, the Integer objects don't match?
-            assertTrue("verify key/id is unchanged", bookResult.getId() == TEST_BOOK_ID_MODIFY);
+            assertTrue("verify key/id is unchanged", bookResult.getId().intValue() == TEST_BOOK_ID_MODIFY);
         } catch (Exception ex) {
             Logger.getLogger(TestBookController.class.getName()).log(Level.SEVERE, null, ex);
             no_errors_found = false;
@@ -287,14 +293,14 @@ public class TestBookController {
         try {
             ResultActions requestResult
                     = this.mockMvc.perform(get("/book/list.htm"))
-                            .andExpect(view().name("book/list"))
-                            .andExpect(model().attributeExists("list"))
-                            //    .andExpect(model().attribute("list", hasItem(huckleBerryFinn)))
-                            .andExpect(forwardedUrl("/WEB-INF/views/book/list.jsp"));
+                    .andExpect(view().name("book/list"))
+                    .andExpect(model().attributeExists("list"))
+                    //    .andExpect(model().attribute("list", hasItem(huckleBerryFinn)))
+                    .andExpect(forwardedUrl("/WEB-INF/views/book/list.jsp"));
             List<Book> list = (List<Book>) requestResult.andReturn().getModelAndView().getModelMap().get("list");
             boolean RECORD_FOUND = false;
             for (Book book : list) {
-                if (book.getId() == TEST_BOOK_ID_DELETE) {
+                if (book.getId().intValue() == TEST_BOOK_ID_DELETE) {
                     RECORD_FOUND = true;
                     break;
                 }
@@ -307,4 +313,5 @@ public class TestBookController {
         }
         assertTrue("verify no exceptions thrown", no_errors_found);
     }
+
 }

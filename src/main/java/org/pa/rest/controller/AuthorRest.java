@@ -18,12 +18,10 @@ import org.pa.rest.message.SuccessMessage;
 import org.pa.validation.AuthorValidator;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.MapBindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -50,7 +48,7 @@ public class AuthorRest {
         this.authorsRepository = authorsRepository;
     }
 
-    @RequestMapping(value = EXPORT_ALL_URL, method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = EXPORT_ALL_URL, method = RequestMethod.GET, produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public @ResponseBody
     Map<String, List> exportToJson(Model model) throws Exception {

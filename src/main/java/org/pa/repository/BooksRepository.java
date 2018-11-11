@@ -19,7 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
  * mwave
  */
 @Repository
-public interface BooksRepository   {
+public interface BooksRepository  extends CrudRepository {
 
    
     public Book update(Integer id, String title, Author author);
@@ -36,5 +36,4 @@ public interface BooksRepository   {
      public void delete(Serializable id);
      public void delete (Integer id);
      public void delete(Book book);
-     public long count();
 }

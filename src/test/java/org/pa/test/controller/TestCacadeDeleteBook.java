@@ -37,7 +37,7 @@ import org.springframework.web.context.WebApplicationContext;
 /**
  *
  * @author lorinpa public-action.org
- *
+ 
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
@@ -126,7 +126,7 @@ public class TestCacadeDeleteBook {
             noErrorsFound = false;
         }
         assertTrue("verify no exceptions raised", noErrorsFound);
-
+        
         boolean RECORD_FOUND;
         noErrorsFound = true;
         try {
@@ -140,7 +140,7 @@ public class TestCacadeDeleteBook {
             assertTrue("verify we have books", list.size() > 0);
             RECORD_FOUND = false;
             for (Book book : list) {
-                if (book.getId() == TEST_BOOK_ID) {
+                if (book.getId().intValue() == TEST_BOOK_ID) {
                     RECORD_FOUND = true;
                     break;
                 }
@@ -162,10 +162,10 @@ public class TestCacadeDeleteBook {
                     .andExpect(forwardedUrl("/WEB-INF/views/book-cat/list.jsp"));
 
             List<BookCategory> list = (List<BookCategory>) requestResult.andReturn().getModelAndView().getModelMap().get("list");
-            assertTrue("verify we have records ", list.size() > 0);
-            RECORD_FOUND = false;
+            assertTrue("verify we have records ",list.size() > 0);
+             RECORD_FOUND = false;
             for (BookCategory bookCat : list) {
-                if (bookCat.getBookId().getId() == TEST_BOOK_ID) {
+                if (bookCat.getBookId().getId().intValue() == TEST_BOOK_ID) {
                     RECORD_FOUND = true;
                     break;
                 }
@@ -185,10 +185,10 @@ public class TestCacadeDeleteBook {
                     .andExpect(forwardedUrl("/WEB-INF/views/review/list.jsp"));
 
             List<Review> list = (List<Review>) requestResult.andReturn().getModelAndView().getModelMap().get("list");
-            assertTrue("verify we have records", list.size() > 0);
-            RECORD_FOUND = false;
+            assertTrue("verify we have records", list.size() >  0);
+              RECORD_FOUND = false;
             for (Review review : list) {
-                if (review.getBookId().getId() == TEST_BOOK_ID) {
+                if (review.getBookId().getId().intValue() == TEST_BOOK_ID) {
                     RECORD_FOUND = true;
                     break;
                 }

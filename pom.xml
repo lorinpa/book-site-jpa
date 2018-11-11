@@ -4,21 +4,18 @@
 
     <groupId>public-action.org</groupId>
     <artifactId>book-site-jpa</artifactId>
-    <version>dev-2.0</version>
+    <version>dev-1.0</version>
     <packaging>war</packaging>
 
     <name>book-site-jpa</name>
 
     <properties>
+        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <skipTests>false</skipTests>
-        <testcase.groups></testcase.groups>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-        <delete-all>-NONE</delete-all>
-        <create-all>-NONE</create-all>
+          <testcase.groups></testcase.groups>   
     </properties>
-
+    
     <profiles>
         <profile>
             <id>test-db</id>
@@ -30,7 +27,7 @@
             </activation>
             <properties>
                 <db-file-name.home>test</db-file-name.home>
-                <testcase.groups></testcase.groups>
+                  <testcase.groups></testcase.groups>
             </properties>
         </profile>
         <profile>
@@ -43,7 +40,7 @@
             </activation>
             <properties>
                 <db-file-name.home>test</db-file-name.home>
-                <!-- <testcase.groups>org.pa.test.category.Critical</testcase.groups>-->
+                  <testcase.groups>org.pa.test.category.Critical</testcase.groups>
                 <delete-all>-DELETE_ALL</delete-all>
                 <create-all>-CREATE_ALL</create-all>
             </properties>
@@ -71,39 +68,29 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>5.1.2.RELEASE</version>
+            <version>3.2.3.RELEASE</version>
         </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <version>5.1.2.RELEASE</version>
+            <version>3.2.3.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
-            <version>5.1.2.RELEASE</version>
+            <version>3.2.0.RELEASE</version>
+            <!-- will come with all needed Spring dependencies such as spring-core and spring-beans-->
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>5.1.2.RELEASE</version>
+            <version>3.2.3.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
-            <version>5.1.2.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-jpa</artifactId>
-            <version>2.1.2.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <version>5.1.2.RELEASE</version>
-            <scope>test</scope>
-            <type>jar</type>
+            <version>3.2.0.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>cglib</groupId>
@@ -113,7 +100,7 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <version>1.4.197</version>
+            <version>1.3.156</version>
         </dependency>
         <dependency>
             <groupId>commons-dbcp</groupId>
@@ -128,18 +115,7 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>5.3.7.Final</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-entitymanager</artifactId>
-            <version>5.3.7.Final</version>
-        </dependency>
-         <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>5.4.2.Final</version>
-            <type>jar</type>
+            <version>4.2.1.Final</version>
         </dependency>
         <dependency>
             <groupId>org.javassist</groupId>
@@ -147,30 +123,66 @@
             <version>3.17.1-GA</version>
         </dependency>
         <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>4.2.1.Final</version>
+        </dependency>
+        <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
-            <artifactId>hibernate-jpa-2.1-api</artifactId>
-            <version>1.0.2.Final</version>
+            <artifactId>hibernate-jpa-2.0-api</artifactId>
+            <version>1.0.0.Final</version>
         </dependency>
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.9.7</version>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>1.3.4.RELEASE</version>
         </dependency>
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-            <version>2.9.7</version>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-core-asl</artifactId>
+            <version>1.8.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>1.8.0</version>
+            <type>jar</type>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>4.10</version>
             <scope>test</scope>
         </dependency>
-       <dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>3.2.3.RELEASE</version>
+            <scope>test</scope>
+            <type>jar</type>
+        </dependency>
+
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-maven-plugin</artifactId>
+            <version>9.0.4.v20130625</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-antrun-plugin</artifactId>
+            <version>1.7</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
             <version>1.7.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>4.2.0.Final</version>
+            <type>jar</type>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
@@ -182,13 +194,13 @@
         <dependency>
             <groupId>com.jayway.jsonpath</groupId>
             <artifactId>json-path</artifactId>
-            <version>2.4.0</version>
+            <version>0.8.1</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.jayway.jsonpath</groupId>
             <artifactId>json-path-assert</artifactId>
-            <version>2.4.0</version>
+            <version>0.8.1</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -197,34 +209,15 @@
             <version>1.3</version>
             <type>jar</type>
         </dependency>
-        <dependency>
-            <groupId>javax.xml.bind</groupId>
-            <artifactId>jaxb-api</artifactId>
-            <version>2.3.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.ow2.asm</groupId>
-            <artifactId>asm</artifactId>
-            <version>6.2.1</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.inject</groupId>
-            <artifactId>javax.inject</artifactId>
-            <version>1</version>
-        </dependency>
-        <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-            <version>7.0</version>
-        </dependency>
     </dependencies>
 
     <build>
         <plugins>
-            <plugin>
+       <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.1</version>
+                <version>2.16</version>
+                
                 <configuration>
                     <skipTests>${skipTests}</skipTests>
                     <systemProperties>
@@ -234,16 +227,19 @@
                         </property>
                     </systemProperties>
                     <groups>${testcase.groups}</groups>
-                </configuration>
+                </configuration>           
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.3.2</version>
                 <configuration>
-                    <source>11</source>
-                    <target>11</target>
-                    <verbose>false</verbose>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                    <compilerArguments>
+                        <endorseddirs>${endorsed.dir}</endorseddirs>
+                    </compilerArguments>
+                     <verbose>false</verbose>
                 </configuration>
             </plugin>
             <plugin>
@@ -265,45 +261,87 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.codehaus.cargo</groupId>
-                <artifactId>cargo-maven2-plugin</artifactId>
-                <version>1.5.0</version>
-                <configuration>
-                    <container>
-                        <containerId>jetty9x</containerId>
-                        <type>installed</type>
-                        <home>${user.home}/development/jetty/jetty-9.4.12</home>
-                    </container>
-                    <configuration>
-                        <type>existing</type>
-                        <home>${user.home}/development/jetty/jetty-9.4.12</home>
-                    </configuration>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>1.6.0</version>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.1</version>
                 <executions>
                     <execution>
-                        <phase>test</phase>
+                        <phase>validate</phase>
                         <goals>
-                            <goal>java</goal>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${endorsed.dir}</outputDirectory>
+                            <silent>true</silent>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>javax</groupId>
+                                    <artifactId>javaee-endorsed-api</artifactId>
+                                    <version>6.0</version>
+                                    <type>jar</type>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>9.0.4.v20130625</version>
+                <configuration>
+                    <stopPort>9966</stopPort>
+                    <stopKey>foo</stopKey>
+                </configuration> 
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.7</version>
+                <executions>
+                    <execution>
+                        <id>id.process-resources</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                          
+                            <target>
+                                <echo>****process-resources phase</echo>
+                            </target>
+                            <target>
+                            
+                                    <echo>****processing Case Generator*****</echo>
+                                <java classname="org.pa.dbutil.CaseGen">
+                                   <arg  value="${delete-all}"/>
+                                   <arg  value="${create-all}"/>
+                                    <classpath>
+                                          <pathelement location= "${user.home}/development/workspace/java-projects/book-site-jpa/target/test-classes"/>
+                                          <pathelement location= "${user.home}/development/workspace/java-projects/book-site-jpa/target/classes"/>
+                                          <pathelement location="${user.home}/.m2/repository/com/h2database/h2/1.3.156/h2-1.3.156.jar"/>
+                                      </classpath>
+                                </java>
+                            </target>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <phase>package</phase>
+                        <configuration>
+                            <target>
+                                <property name="jetty.home" value="${user.home}/development/jetty/jetty-9.0.4"/>
+                             
+                                <delete dir="${jetty.home}/webapps/book-site-jpa"/>
+                                <copy todir="${jetty.home}/webapps/book-site-jpa">
+                                    <fileset dir="target/book-site-jpa-${version}"/>
+                                </copy>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
                         </goals>
                     </execution>
                 </executions>
-                <configuration>
-                    <classpathScope>test</classpathScope>
-                    <arguments>
-                        <argument>-classpath</argument>
-                        <argument>${project.build.directory}/test-classes</argument>
-                        <argument>${project.build.directory}/classes</argument>
-                        <argument>${user.home}/.m2/repository/com/h2database/h2/1.4.197/h2-1.4.197.jar"</argument>
-						<argument>${delete-all}</argument>
-                        <argument>${create-all}</argument>
-                    </arguments>
-                    <mainClass>org.pa.dbutil.CaseGen</mainClass>
-                </configuration>
             </plugin>
         </plugins>
     </build>

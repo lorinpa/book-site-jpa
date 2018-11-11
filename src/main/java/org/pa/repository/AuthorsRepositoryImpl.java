@@ -45,14 +45,14 @@ public class AuthorsRepositoryImpl implements AuthorsRepository {
         return (Author) q.getSingleResult();
     }
 
- 
+    @Override
     public Object findOne(Serializable id) {
         Query q = entityManager.createQuery("select a from Author a where a.id = ?1");
         q.setParameter(1, id);
         return q.getSingleResult();
     }
 
-  
+    @Override
     @Transactional(readOnly = true)
     public boolean exists(Serializable id) {
         boolean found = false;
@@ -64,7 +64,8 @@ public class AuthorsRepositoryImpl implements AuthorsRepository {
         }
         return found;
     }
-   
+
+    @Override
     public Iterable findAll(Iterable itrbl) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -73,6 +74,7 @@ public class AuthorsRepositoryImpl implements AuthorsRepository {
     @Transactional(readOnly = true)
     public long count() {
         return (Long) entityManager.createQuery("Select count(a.id) from Author a").getSingleResult();
+
     }
 
     @Transactional
@@ -95,7 +97,7 @@ public class AuthorsRepositoryImpl implements AuthorsRepository {
         entityManager.remove(author);
     }
 
-   
+    @Override
     @Transactional
     public void delete(Object t) {
         Author author = (Author) t;
@@ -107,17 +109,17 @@ public class AuthorsRepositoryImpl implements AuthorsRepository {
         entityManager.remove(author);
     }
 
-   
+    @Override
     public void delete(Iterable itrbl) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-   
+    @Override
     public void deleteAll() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-
+    @Override
     public Iterable save(Iterable arg0) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -129,7 +131,7 @@ public class AuthorsRepositoryImpl implements AuthorsRepository {
         return s;
     }
 
-   
+    @Override
     public Object save(Object arg0) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
