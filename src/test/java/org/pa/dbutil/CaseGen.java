@@ -69,7 +69,6 @@ public class CaseGen {
     private CaseGen() {
         setInstance();
         dbConn = new DbConnection(dbInstance);
-
     }
 
     private final static void setInstance() {
@@ -191,7 +190,7 @@ public class CaseGen {
         int id = -1;
         try {
             conn = dbConn.getConnection();
-            ps = conn.prepareStatement(INSERT_AUTHOR);
+            ps = conn.prepareStatement(INSERT_AUTHOR, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setString(1, MARK);
             ps.setString(2, TWAIN);
             ps.executeUpdate();
@@ -199,7 +198,7 @@ public class CaseGen {
             rs.next();
             id = rs.getInt(1);
 
-            ps = conn.prepareStatement(INSERT_AUTHOR);
+            ps = conn.prepareStatement(INSERT_AUTHOR, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setString(1, JOE);
             ps.setString(2, SMOE);
             ps.executeUpdate();
@@ -208,7 +207,7 @@ public class CaseGen {
             id = rs.getInt(1);
 
             // Note! Ed Smed needs to be added last -- marks the end of the generated Authors
-            ps = conn.prepareStatement(INSERT_AUTHOR);
+            ps = conn.prepareStatement(INSERT_AUTHOR, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setString(1, ED);
             ps.setString(2, SMED);
             ps.executeUpdate();
@@ -285,7 +284,7 @@ public class CaseGen {
             ps.setString(2, last_name);
             rs = ps.executeQuery();
             if (!rs.first()) {
-                ps = conn.prepareStatement(INSERT_AUTHOR);
+                ps = conn.prepareStatement(INSERT_AUTHOR,PreparedStatement.RETURN_GENERATED_KEYS);
                 ps.setString(1, first_name);
                 ps.setString(2, last_name);
                 ps.executeUpdate();
@@ -331,7 +330,7 @@ public class CaseGen {
         try {
             conn = dbConn.getConnection();
 
-            ps = conn.prepareStatement(INSERT_BOOK);
+            ps = conn.prepareStatement(INSERT_BOOK, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setString(1, HUCKLE_BERRY_FINN_BOOK_TITLE);
             ps.setInt(2, MARK_TWAIN_ID);
             ps.executeUpdate();
@@ -339,7 +338,7 @@ public class CaseGen {
             rs.next();
             id = rs.getInt(1);
 
-            ps = conn.prepareStatement(INSERT_BOOK);
+            ps = conn.prepareStatement(INSERT_BOOK, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setString(1, TOM_SAWYER_BOOK_TITLE);
             ps.setLong(2, MARK_TWAIN_ID);
             ps.executeUpdate();
@@ -347,7 +346,7 @@ public class CaseGen {
             rs.next();
             id = rs.getInt(1);
 
-            ps = conn.prepareStatement(INSERT_BOOK);
+            ps = conn.prepareStatement(INSERT_BOOK, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setString(1, SMOE_BOOK_TITLE);
             ps.setInt(2, JOE_SMOE_ID);
             ps.executeUpdate();
@@ -355,7 +354,7 @@ public class CaseGen {
             rs.next();
             id = rs.getInt(1);
 
-            ps = conn.prepareStatement(INSERT_BOOK);
+            ps = conn.prepareStatement(INSERT_BOOK, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setString(1, SMED_BOOK_TITLE);
             ps.setInt(2, ED_SMED_ID);
             ps.executeUpdate();
@@ -403,7 +402,6 @@ public class CaseGen {
         } catch (Exception ex) {
             Logger.getLogger(CaseGen.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
-
             try {
                 rs.close();
             } catch (SQLException ex) {
@@ -428,7 +426,7 @@ public class CaseGen {
 
         try {
             conn = dbConn.getConnection();
-            ps = conn.prepareStatement(INSERT_BOOK);
+            ps = conn.prepareStatement(INSERT_BOOK,PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setString(1, title);
             ps.setInt(2, author_id);
             ps.executeUpdate();
@@ -471,7 +469,7 @@ public class CaseGen {
         int id = -1;
         try {
             conn = dbConn.getConnection();
-            ps = conn.prepareStatement(INSERT_CATEGORY);
+            ps = conn.prepareStatement(INSERT_CATEGORY,PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setString(1, CATEGORY_FICTION_TITLE);
             ps.executeUpdate();
             rs = ps.getGeneratedKeys();
@@ -516,7 +514,7 @@ public class CaseGen {
         int id = -1;
         try {
             conn = dbConn.getConnection();
-            ps = conn.prepareStatement(INSERT_CATEGORY);
+            ps = conn.prepareStatement(INSERT_CATEGORY,PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setString(1, title);
             ps.executeUpdate();
             rs = ps.getGeneratedKeys();
@@ -552,7 +550,7 @@ public class CaseGen {
         int id = -1;
         try {
             conn = dbConn.getConnection();
-            ps = conn.prepareStatement(SELECT_CATEGORY);
+            ps = conn.prepareStatement(SELECT_CATEGORY,PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setString(1, title);
             rs = ps.executeQuery();
             rs.next();
@@ -605,7 +603,7 @@ public class CaseGen {
 
         try {
             conn = dbConn.getConnection();
-            ps = conn.prepareStatement(INSERT_REVIEW);
+            ps = conn.prepareStatement(INSERT_REVIEW,PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setInt(1, BOOK_ID_HUCKLEBERRY_FINN);
             ps.setInt(2, 5); // FIVE STARS
             ps.setString(3, REVIEW_BODY_FIVE_STAR);
@@ -673,7 +671,7 @@ public class CaseGen {
         int id = -1;
         try {
             conn = dbConn.getConnection();
-            ps = conn.prepareStatement(INSERT_REVIEW);
+            ps = conn.prepareStatement(INSERT_REVIEW,PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setInt(1, book_id);
             ps.setInt(2, stars);
             ps.setString(3, body);
@@ -758,7 +756,7 @@ public class CaseGen {
 
         try {
             conn = dbConn.getConnection();
-            ps = conn.prepareStatement(INSERT_BOOK_CATEGORY);
+            ps = conn.prepareStatement(INSERT_BOOK_CATEGORY, PreparedStatement.RETURN_GENERATED_KEYS);
 
             ps.setInt(1, BOOK_ID_HUCKLEBERRY_FINN);
             ps.setInt(2, CATEGORY_ID_HUMOR);
@@ -814,7 +812,7 @@ public class CaseGen {
         int id = -1;
         try {
             conn = dbConn.getConnection();
-            ps = conn.prepareStatement(INSERT_BOOK_CATEGORY);
+            ps = conn.prepareStatement(INSERT_BOOK_CATEGORY, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setInt(1, book_id);
             ps.setInt(2, category_id);
             ps.executeUpdate();
@@ -896,7 +894,7 @@ public class CaseGen {
                 do_create_all = true;
             }
         }
-
+        
         if (do_delete_all) {
             System.out.println("Deleting all records");
             CaseGen.getInstance().deleteAllAuthors();

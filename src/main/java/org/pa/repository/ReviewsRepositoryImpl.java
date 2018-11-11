@@ -11,7 +11,6 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
-import org.pa.dto.BookExport;
 import org.pa.dto.ReviewExport;
 import org.pa.entity.Book;
 import org.pa.entity.Review;
@@ -32,7 +31,6 @@ public class ReviewsRepositoryImpl implements ReviewsRepository {
 
     @Transactional
     public Review update(Serializable id, Book book, Integer stars, String body) throws Exception {
-
         Review review = findById(id);
         review.setBody(body);
         review.setBookId(book);
@@ -53,7 +51,6 @@ public class ReviewsRepositoryImpl implements ReviewsRepository {
         Query q = entityManager.createQuery("select a from Review a");
         List<Review> list = q.getResultList();
         return list;
-
     }
     
     @Transactional
@@ -63,23 +60,21 @@ public class ReviewsRepositoryImpl implements ReviewsRepository {
       
         List<ReviewExport> list = q.getResultList();
         return list;
-        
     }
     
-    
     @Transactional
+    @Override
     public Review findById(Serializable id) throws javax.persistence.NoResultException {
         return (Review) findOne(id);
     }
 
     @Transactional
+    @Override
     public List<Review> findByBookId(Serializable bookId) {
-
         Query q = entityManager.createQuery("Select a from Review a  where a.bookId.id = ?1");
         q.setParameter(1, bookId);
         List<Review> list = q.getResultList();
         return list;
-
     }
 
     @Override
@@ -90,7 +85,6 @@ public class ReviewsRepositoryImpl implements ReviewsRepository {
         return q.getSingleResult();
     }
 
-    @Override
     public Iterable save(Iterable itrbl) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -108,29 +102,23 @@ public class ReviewsRepositoryImpl implements ReviewsRepository {
         return found;
     }
 
-    @Override
     public Iterable findAll(Iterable itrbl) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     @Transactional
     public long count() {
         return (Long) entityManager.createQuery("Select count(a.id) from Review a").getSingleResult();
-
     }
 
-    @Override
     public void delete(Iterable itrbl) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public void deleteAll() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     @Transactional
     public void delete(Serializable id) {
 
@@ -144,7 +132,6 @@ public class ReviewsRepositoryImpl implements ReviewsRepository {
         entityManager.remove(review);
     }
 
-    @Override
     @Transactional
     public void delete(Object entity) {
         Review review = (Review) entity;
@@ -172,7 +159,6 @@ public class ReviewsRepositoryImpl implements ReviewsRepository {
         return s;
     }
 
-    @Override
     public Object save(Object arg0) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

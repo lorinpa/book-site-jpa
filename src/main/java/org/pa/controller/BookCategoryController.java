@@ -211,7 +211,7 @@ public class BookCategoryController {
     @RequestMapping(value = DEL_URL, method = RequestMethod.POST)
     public String submitDeleteForm(@ModelAttribute BookCategory bookCat, BindingResult result, SessionStatus status) {
         try {
-            bookCatRepo.delete(bookCat);
+            bookCatRepo.delete(bookCat.getId());
             return REDIRECT_HOME_URL;
         } catch (PersistenceException pe) {
             ObjectError oe = new ObjectError("bookCat", MessageDetailDefinitions.DELETE_BOOK_CATEGORY_EXCEPTION);
