@@ -58,10 +58,8 @@ public class CategoryRest {
         Map<String, List> dto = new HashMap<>();
         List<Category>  list = categoryRepo.findAll();
         dto.put("categories", list);
-
         return dto;
     }
-
 
     @RequestMapping(value = ADD_CATEGORY_URL, method = RequestMethod.POST, produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
@@ -97,7 +95,6 @@ public class CategoryRest {
             return re.exceptionMap();
         }
     }
-
 
     @RequestMapping(value = MODIFY_CATEGORY_URL, method = RequestMethod.PUT, produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
@@ -156,5 +153,4 @@ public class CategoryRest {
             return re.exceptionMap();
         }
     }
-
 }
