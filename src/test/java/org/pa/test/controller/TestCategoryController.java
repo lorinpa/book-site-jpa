@@ -15,12 +15,10 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.Assert.*;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito.*;
 import org.pa.AppConfig;
 import org.pa.dbutil.CaseGen;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,15 +38,14 @@ import org.pa.entity.Category;
 import org.pa.exception.MessageDetailDefinitions;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
-
 import org.springframework.web.context.WebApplicationContext;
 
 /**
  *
  * @author lorinpa
- 
- Note! We use our CaseGen utility to create a set of test data(
-
+ *
+ * Note! We use our CaseGen utility to create a set of test data(
+ *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
@@ -118,15 +115,15 @@ public class TestCategoryController {
         try {
             ResultActions requestResult
                     = this.mockMvc.perform(get("/category/categoryHome.htm"))
-                    .andExpect(view().name("category/categoryHome"))
-                    .andExpect(model().attributeExists("list"))
-                    .andExpect(forwardedUrl("/WEB-INF/views/category/categoryHome.jsp"));
+                            .andExpect(view().name("category/categoryHome"))
+                            .andExpect(model().attributeExists("list"))
+                            .andExpect(forwardedUrl("/WEB-INF/views/category/categoryHome.jsp"));
             List<Category> list = (List<Category>) requestResult.andReturn().getModelAndView().getModelMap().get("list");
             assertTrue("verify we have records ", (list.size() > 0));
 
             boolean RECORD_FOUND = false;
             for (Category category : list) {
-                if (category.getId().intValue() == FICTION_CATEGORY_ID) {
+                if (category.getId() == FICTION_CATEGORY_ID) {
                     RECORD_FOUND = true;
                     break;
                 }
@@ -181,7 +178,7 @@ public class TestCategoryController {
                     .andExpect(view().name(REDIRECT_TO_CATEGORY_HOME_NAME));
             Category categoryResult = (Category) andExpect.andReturn().getModelAndView().getModelMap().get("category");
             assertTrue("verify title updated", categoryResult.getTitle().equals(testCategory));
-            assertTrue("verify key/id is unchanged", categoryResult.getId().intValue() == TEST_CATEGORY_MODIFY_ID);
+            assertTrue("verify key/id is unchanged", categoryResult.getId() == TEST_CATEGORY_MODIFY_ID);
         } catch (Exception ex) {
             Logger.getLogger(TestCategoryController.class.getName()).log(Level.SEVERE, null, ex);
             no_errors = false;
@@ -203,8 +200,8 @@ public class TestCategoryController {
                     .andExpect(view().name("category/addCategory"))
                     .andExpect(model().attributeExists("category"));
             // get the error message is nested in the result. 
-            BindingResult bindingResult =
-                    (BindingResult) requestResult.andReturn().getModelAndView().getModelMap().get("org.springframework.validation.BindingResult.category");
+            BindingResult bindingResult
+                    = (BindingResult) requestResult.andReturn().getModelAndView().getModelMap().get("org.springframework.validation.BindingResult.category");
             assertThat(bindingResult.getAllErrors(), hasItem(new ObjectError("title", MessageDetailDefinitions.DUPLICATE_CATEGORY_EXCEPTION)));
         } catch (Exception ex) {
             Logger.getLogger(TestCategoryController.class.getName()).log(Level.SEVERE, null, ex);
@@ -229,8 +226,8 @@ public class TestCategoryController {
                     .andExpect(view().name("category/editCategory"))
                     .andExpect(model().attributeExists("category"));
             // get the error message is nested in the result. 
-            BindingResult bindingResult =
-                    (BindingResult) requestResult.andReturn().getModelAndView().getModelMap().get("org.springframework.validation.BindingResult.category");
+            BindingResult bindingResult
+                    = (BindingResult) requestResult.andReturn().getModelAndView().getModelMap().get("org.springframework.validation.BindingResult.category");
             assertThat(bindingResult.getAllErrors(), hasItem(new ObjectError("title", MessageDetailDefinitions.DUPLICATE_CATEGORY_EXCEPTION)));
         } catch (Exception ex) {
             Logger.getLogger(TestCategoryController.class.getName()).log(Level.SEVERE, null, ex);
@@ -267,9 +264,9 @@ public class TestCategoryController {
         try {
             ResultActions requestResult
                     = this.mockMvc.perform(get("/category/categoryHome.htm"))
-                    .andExpect(view().name("category/categoryHome"))
-                    .andExpect(model().attributeExists("list"))
-                    .andExpect(forwardedUrl("/WEB-INF/views/category/categoryHome.jsp"));
+                            .andExpect(view().name("category/categoryHome"))
+                            .andExpect(model().attributeExists("list"))
+                            .andExpect(forwardedUrl("/WEB-INF/views/category/categoryHome.jsp"));
             List<Category> list = (List<Category>) requestResult.andReturn().getModelAndView().getModelMap().get("list");
             assertTrue("list must have size of 3 or more ", (list.size() >= 0));
             boolean RECORD_FOUND = false;
@@ -286,5 +283,4 @@ public class TestCategoryController {
         }
         assertTrue("verify there were no errors", no_errors);
     }
-
 }

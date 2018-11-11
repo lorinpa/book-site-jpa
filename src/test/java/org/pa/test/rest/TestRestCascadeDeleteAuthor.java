@@ -1,22 +1,20 @@
 package org.pa.test.rest;
 
+import com.jayway.jsonpath.JsonPath;
 import org.pa.rest.controller.*;
-import com.jayway.jsonpath.JsonModel;
 import java.util.Date;
+import java.util.LinkedHashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import net.minidev.json.JSONArray;
-import net.minidev.json.JSONObject;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.Assert.*;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito.*;
 import org.pa.AppConfig;
 import org.pa.dbutil.CaseGen;
 
@@ -32,18 +30,18 @@ import org.springframework.test.web.servlet.ResultActions;
 
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import org.springframework.web.context.WebApplicationContext;
 
 /**
  *
- * @author  lorinpa
- Note!  We use DbUtil to create a test case set. Specifically we
- create 4 books by 3 authors. Since we don't know what sequence the tests are 
- run in, our delete book test deletes from the end of our list. Likewise, our 
- tests that verify a specific  book value at a specific list position use the beginning
- of the list. 
+ * @author lorinpa Note! We use DbUtil to create a test case set. Specifically
+ * we create 4 books by 3 authors. Since we don't know what sequence the tests
+ * are run in, our delete book test deletes from the end of our list. Likewise,
+ * our tests that verify a specific book value at a specific list position use
+ * the beginning of the list.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
@@ -121,21 +119,18 @@ public class TestRestCascadeDeleteAuthor {
             String url = String.format(DELETE_AUTHOR_URL, TEST_AUTHOR_ID);
             ResultActions requestResult = this.mockMvc.perform(delete(url)
                     .accept(MediaType.APPLICATION_JSON))
-                    .andExpect(status().isOk())
-                    .andExpect(content().contentType(MediaType.APPLICATION_JSON));
+                    .andExpect(MockMvcResultMatchers.status().isOk())
+                    .andExpect(MockMvcResultMatchers.content()
+                            .contentType("application/json;charset=UTF-8"));
 
             String content = requestResult.andReturn().getResponse().getContentAsString();
-            JsonModel model = JsonModel.create(content);
-            JSONObject obj = (JSONObject) model.getJsonObject();
-
-            assertTrue("object is a json Object", (obj instanceof JSONObject));
-            String action = obj.get("action").toString();
-            String status = obj.get("status").toString();
-            JSONObject authorData = (JSONObject) obj.get("data");
+            String action = JsonPath.read(content, "$.action");
+            String status = JsonPath.read(content, "$.status");
+            LinkedHashMap authorData = JsonPath.read(content, "$.data");
             Integer id = (Integer) authorData.get("id");
             assertTrue("action is delete ", action.equals(MessageDefinitions.DEL_OPERATION));
             assertTrue("status is success ", status.equals(MessageDefinitions.SUCCESS));
-            assertTrue("id is Joe smoe's", (TEST_AUTHOR_ID == id.intValue()));
+            assertTrue("id is Joe smoe's", (TEST_AUTHOR_ID == id));
         } catch (Exception ex) {
             Logger.getLogger(TestRestCascadeDeleteAuthor.class.getName()).log(Level.SEVERE, null, ex);
             noErrorsFound = false;
@@ -146,23 +141,22 @@ public class TestRestCascadeDeleteAuthor {
         try {
             ResultActions requestResult = this.mockMvc.perform(get(AuthorRest.EXPORT_ALL_URL)
                     .accept(MediaType.APPLICATION_JSON))
-                    .andExpect(status().isOk())
-                    .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                    .andExpect(MockMvcResultMatchers.status().isOk())
+                    .andExpect(MockMvcResultMatchers.content()
+                            .contentType("application/json;charset=UTF-8"))
                     .andExpect(jsonPath("$.authors").isArray());
 
             String content = requestResult.andReturn().getResponse().getContentAsString();
-            JsonModel model = JsonModel.create(content);
-
-            Object obj = model.get("$.authors");
-            assertTrue("object is a json array", (obj instanceof JSONArray));
-            num_records = ((JSONArray) obj).size();
+            JSONArray list = (JSONArray) JsonPath.read(content, "$.authors");
+            assertTrue("list is a json array", (list instanceof JSONArray));
+            num_records = list.size();
             assertTrue("verify we have records", num_records > 0);
-            JSONArray list = (JSONArray) obj;
-            JSONObject record;
+
+            LinkedHashMap record;
             Integer id;
             RECORD_FOUND = false;
             for (int nIndex = 0; nIndex < num_records; nIndex++) {
-                record = (JSONObject) list.get(nIndex);
+                record = (LinkedHashMap) list.get(nIndex);
                 id = (Integer) record.get("id");
                 if (id == TEST_AUTHOR_ID) {
                     RECORD_FOUND = true;
@@ -180,23 +174,23 @@ public class TestRestCascadeDeleteAuthor {
         noErrorsFound = true;
         try {
             ResultActions requestResult = this.mockMvc.perform(get(BookRest.EXPORT_ALL_URL).accept(MediaType.APPLICATION_JSON))
-                    .andExpect(status().isOk())
-                    .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                    .andExpect(MockMvcResultMatchers.status().isOk())
+                    .andExpect(MockMvcResultMatchers.content()
+                            .contentType("application/json;charset=UTF-8"))
                     .andExpect(jsonPath("$.books").isArray());
 
             String content = requestResult.andReturn().getResponse().getContentAsString();
-            JsonModel model = JsonModel.create(content);
 
-            Object obj = model.get("$.books");
-            assertTrue("object is a json array", (obj instanceof JSONArray));
-            num_records = ((JSONArray) obj).size();
+            JSONArray list = (JSONArray) JsonPath.read(content, "$.books");
+            assertTrue("object is a json array", (list instanceof JSONArray));
+            num_records = list.size();
             assertTrue("verify we have records", num_records > 0);
-            JSONArray list = (JSONArray) obj;
-            JSONObject record;
+
+            LinkedHashMap record;
             Integer id;
             RECORD_FOUND = false;
             for (int nIndex = 0; nIndex < num_records; nIndex++) {
-                record = (JSONObject) list.get(nIndex);
+                record = (LinkedHashMap) list.get(nIndex);
                 id = (Integer) record.get("id");
                 if (id == TEST_BOOK_ID) {
                     RECORD_FOUND = true;
@@ -214,21 +208,20 @@ public class TestRestCascadeDeleteAuthor {
         try {
             ResultActions requestResult = this.mockMvc.perform(get("/export/book_category/all")
                     .accept(MediaType.APPLICATION_JSON))
-                    .andExpect(status().isOk())
-                    .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                    .andExpect(jsonPath("$book_categories").isArray());
+                    .andExpect(MockMvcResultMatchers.status().isOk())
+                    .andExpect(MockMvcResultMatchers.content()
+                            .contentType("application/json;charset=UTF-8"))
+                    .andExpect(jsonPath("$.book_categories").isArray());
 
             String content = requestResult.andReturn().getResponse().getContentAsString();
-            JsonModel model = JsonModel.create(content);
-            Object obj = model.get("$.book_categories");
-            num_records = ((JSONArray) obj).size();
+            JSONArray list = (JSONArray) JsonPath.read(content, "$.book_categories");
+            num_records = list.size();
             assertTrue("verify we have records", num_records > 0);
-            JSONArray list = (JSONArray) obj;
-            JSONObject record;
+            LinkedHashMap record;
             Integer id;
             RECORD_FOUND = false;
             for (int nIndex = 0; nIndex < num_records; nIndex++) {
-                record = (JSONObject) list.get(nIndex);
+                record = (LinkedHashMap) list.get(nIndex);
                 id = (Integer) record.get("book_id");
                 if (id == TEST_BOOK_ID) {
                     RECORD_FOUND = true;
@@ -236,33 +229,31 @@ public class TestRestCascadeDeleteAuthor {
                 }
             }
             assertFalse("verify record not found", RECORD_FOUND);
-
         } catch (Exception ex) {
             Logger.getLogger(TestRestCascadeDeleteAuthor.class.getName()).log(Level.SEVERE, null, ex);
-              noErrorsFound = false;
+            noErrorsFound = false;
         }
-         assertTrue("verify no exceptions raised", noErrorsFound);
-         
-         noErrorsFound = true;
+        assertTrue("verify no exceptions raised", noErrorsFound);
+
+        noErrorsFound = true;
         try {
             ResultActions requestResult = this.mockMvc.perform(get("/export/review/all")
                     .accept(MediaType.APPLICATION_JSON))
-                    .andExpect(status().isOk())
-                    .andExpect(content().contentType(MediaType.APPLICATION_JSON));
+                    .andExpect(MockMvcResultMatchers.status().isOk())
+                    .andExpect(MockMvcResultMatchers.content()
+                            .contentType("application/json;charset=UTF-8"));
 
             String content = requestResult.andReturn().getResponse().getContentAsString();
-            JsonModel model = JsonModel.create(content);
-
-            Object obj = model.get("$.reviews");
-            assertTrue("object is a json array", (obj instanceof JSONArray));
-            num_records = ((JSONArray) obj).size();
+            JSONArray list = (JSONArray) JsonPath.read(content, "$.reviews");
+            assertTrue("object is a json array", (list instanceof JSONArray));
+            num_records = list.size();
             assertTrue("verify we have records", num_records > 0);
-            JSONArray list = (JSONArray) obj;
-            JSONObject record;
+
+            LinkedHashMap record;
             Integer id;
             RECORD_FOUND = false;
             for (int nIndex = 0; nIndex < num_records; nIndex++) {
-                record = (JSONObject) list.get(nIndex);
+                record = (LinkedHashMap) list.get(nIndex);
                 id = (Integer) record.get("book_id");
                 if (id == TEST_BOOK_ID) {
                     RECORD_FOUND = true;
@@ -272,9 +263,9 @@ public class TestRestCascadeDeleteAuthor {
             assertFalse("verify record not found", RECORD_FOUND);
         } catch (Exception ex) {
             Logger.getLogger(TestRestCascadeDeleteAuthor.class.getName()).log(Level.SEVERE, null, ex);
-             noErrorsFound = false;
+            noErrorsFound = false;
         }
-         assertTrue("verify no exceptions raised", noErrorsFound);
+        assertTrue("verify no exceptions raised", noErrorsFound);
     }
 
 }

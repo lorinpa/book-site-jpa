@@ -14,11 +14,9 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.Assert.*;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito.*;
 import org.pa.AppConfig;
 import org.pa.dbutil.CaseGen;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,9 +41,9 @@ import org.springframework.web.context.WebApplicationContext;
 /**
  *
  * @author lorinpa
- 
- Note! We use our CaseGen utility to create a set of test data.
-
+ *
+ * Note! We use our CaseGen utility to create a set of test data.
+ *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
@@ -96,7 +94,6 @@ public class TestReviewController {
         TEST_REVIEW_ID_DELETE = CaseGen.getInstance().createTestReview(HUCK_FINN_BOOK_ID, TEST_REVIEW_STARS_DELETE, TEST_REVIEW_BODY_DELETE);
 
         HUCK_FINN_5_STAR_REVIEW = CaseGen.getInstance().getTestReview(HUCK_FINN_BOOK_ID, 5, CaseGen.REVIEW_BODY_FIVE_STAR);
-
     }
 
     @AfterClass
@@ -125,14 +122,14 @@ public class TestReviewController {
 
             ResultActions requestResult
                     = this.mockMvc.perform(get("/review/list.htm"))
-                    .andExpect(view().name("review/list"))
-                    .andExpect(model().attributeExists("list"))
-                    .andExpect(forwardedUrl("/WEB-INF/views/review/list.jsp"));
+                            .andExpect(view().name("review/list"))
+                            .andExpect(model().attributeExists("list"))
+                            .andExpect(forwardedUrl("/WEB-INF/views/review/list.jsp"));
             List<Review> list = (List<Review>) requestResult.andReturn().getModelAndView().getModelMap().get("list");
             assertTrue("verify we have records", (list.size() > 0));
             boolean RECORD_FOUND = false;
             for (Review review : list) {
-                if (review.getId().intValue() == HUCK_FINN_5_STAR_REVIEW) {
+                if (review.getId() == HUCK_FINN_5_STAR_REVIEW) {
                     RECORD_FOUND = true;
                     break;
                 }
@@ -170,7 +167,7 @@ public class TestReviewController {
             TEST_REVIEW_ID_ADD = reviewResult.getId();
             assertTrue("verify correct stars value returned", reviewResult.getStars() == stars);
             assertTrue("verify body ", reviewResult.getBody().equals(body));
-            assertTrue("verify book id ", reviewResult.getBookId().getId().intValue() == HUCK_FINN_BOOK_ID);
+            assertTrue("verify book id ", reviewResult.getBookId().getId() == HUCK_FINN_BOOK_ID);
 
         } catch (Exception ex) {
             Logger.getLogger(TestReviewController.class.getName()).log(Level.SEVERE, null, ex);
@@ -201,7 +198,7 @@ public class TestReviewController {
             assertTrue(reviewResult.getStars() == stars);
             assertTrue("verify title updated", reviewResult.getBody().equals(body));
             // Note! We need to test the int value, the Integer objects don't match?
-            assertTrue("verify key/id is unchanged", reviewResult.getId().intValue() == TEST_REVIEW_ID_MODIFY);
+            assertTrue("verify key/id is unchanged", reviewResult.getId() == TEST_REVIEW_ID_MODIFY);
         } catch (Exception ex) {
             Logger.getLogger(TestReviewController.class.getName()).log(Level.SEVERE, null, ex);
             noErrorsFound = false;
@@ -237,25 +234,24 @@ public class TestReviewController {
         try {
             ResultActions requestResult
                     = this.mockMvc.perform(get("/review/list.htm"))
-                    .andExpect(view().name("review/list"))
-                    .andExpect(model().attributeExists("list"))
-                    .andExpect(forwardedUrl("/WEB-INF/views/review/list.jsp"));
+                            .andExpect(view().name("review/list"))
+                            .andExpect(model().attributeExists("list"))
+                            .andExpect(forwardedUrl("/WEB-INF/views/review/list.jsp"));
             List<Review> list = (List<Review>) requestResult.andReturn().getModelAndView().getModelMap().get("list");
             assertTrue("verify we have records ", (list.size() >= 4));
-            int  num_reviews_after_delete = list.size();
-              boolean RECORD_FOUND = false;
+            int num_reviews_after_delete = list.size();
+            boolean RECORD_FOUND = false;
             for (Review review : list) {
-                if (review.getId().intValue() == TEST_REVIEW_ID_DELETE) {
+                if (review.getId() == TEST_REVIEW_ID_DELETE) {
                     RECORD_FOUND = true;
                     break;
                 }
             }
-            assertFalse("verify we did not find record", RECORD_FOUND);       
+            assertFalse("verify we did not find record", RECORD_FOUND);
         } catch (Exception ex) {
             Logger.getLogger(TestReviewController.class.getName()).log(Level.SEVERE, null, ex);
             noErrorsFound = false;
         }
         assertTrue("verify no exceptions raised", noErrorsFound);
     }
-
 }

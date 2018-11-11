@@ -5,12 +5,12 @@
 package org.pa.test.rest;
 
 import org.pa.rest.controller.*;
-import com.jayway.jsonpath.JsonModel;
+import com.jayway.jsonpath.JsonPath;
 import java.util.Date;
+import java.util.LinkedHashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import net.minidev.json.JSONArray;
-import net.minidev.json.JSONObject;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -23,8 +23,8 @@ import org.junit.runner.RunWith;
 
 import org.pa.AppConfig;
 import org.pa.dbutil.CaseGen;
-
 import org.pa.exception.MessageDetailDefinitions;
+
 import org.pa.rest.message.MessageDefinitions;
 import org.pa.test.category.Critical;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +37,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.web.context.WebApplicationContext;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
 
@@ -75,6 +76,7 @@ public class TestAuthorRestController {
     private static int TEST_AUTHOR_MODIFY_ID;
     // used to ADD
     private static int TEST_AUTHOR_ADD_ID;
+
     /* 
      *  Let's add at least on Author before we run any tests.
      *  In addition let's capture the test author's id value and add the add id to our ArrayList.
@@ -91,7 +93,6 @@ public class TestAuthorRestController {
         }
         TEST_AUTHOR_DELETE_ID = CaseGen.getInstance().createTestAuthor(new Date().getTime() + "", className);
         TEST_AUTHOR_MODIFY_ID = CaseGen.getInstance().createTestAuthor(new Date().getTime() + "", className);
-
     }
 
     /*  Delete test records which were created in the setUpClass
@@ -120,8 +121,9 @@ public class TestAuthorRestController {
         try {
             ResultActions requestResult = this.mockMvc.perform(get(AuthorRest.EXPORT_ALL_URL)
                     .accept(MediaType.APPLICATION_JSON))
-                    .andExpect(status().isOk())
-                    .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                    .andExpect(MockMvcResultMatchers.status().isOk())
+                    .andExpect(MockMvcResultMatchers.content()
+                            .contentType("application/json;charset=UTF-8"))
                     .andExpect(jsonPath("$.authors").isArray())
                     .andExpect((jsonPath("$.authors[0].id").value(MARK_TWAIN_ID)));
             /*
@@ -129,17 +131,15 @@ public class TestAuthorRestController {
              *   We  walk the response data directly.
              */
             String content = requestResult.andReturn().getResponse().getContentAsString();
-            JsonModel model = JsonModel.create(content);
+            JSONArray obj = (JSONArray) JsonPath.read(content, "$.authors");
 
-            Object obj = model.get("$.authors");
             assertTrue("object is a json array", (obj instanceof JSONArray));
             int num_authors = ((JSONArray) obj).size();
             assertTrue("at least 2 authors returned", num_authors >= 2);
             Object jsonObj = ((JSONArray) obj).get(0);
-            assertTrue("object is a json object", (jsonObj instanceof JSONObject));
-            Object id = ((JSONObject) jsonObj).get("id");
+            Object id = ((LinkedHashMap) jsonObj).get("id");
             assertTrue("id is an integer", (id instanceof Integer));
-            assertTrue(((Integer) id).intValue() == MARK_TWAIN_ID);
+            assertTrue(((Integer) id) == MARK_TWAIN_ID);
 
         } catch (Exception ex) {
             Logger.getLogger(TestAuthorRestController.class.getName()).log(Level.SEVERE, null, ex);
@@ -155,15 +155,15 @@ public class TestAuthorRestController {
             String lastName = new Date().getTime() + "";
             String firstName = "testRestC";
             String requestUrl = String.format(ADD_AUTHOR_URL, firstName, lastName);
-            ResultActions requestResult = this.mockMvc.perform(post(requestUrl).accept(MediaType.APPLICATION_JSON))
-                    .andExpect(status().isOk())
-                    .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+            ResultActions requestResult = this.mockMvc.perform(post(requestUrl)
+                    .accept(MediaType.APPLICATION_JSON))
+                    .andExpect(MockMvcResultMatchers.status().isOk())
+                    .andExpect(MockMvcResultMatchers.content().contentType("application/json;charset=UTF-8"))
                     .andExpect(jsonPath("$.data.lastName").value(lastName))
                     .andExpect(jsonPath("$.status").value("SUCCESS"));
 
             String content = requestResult.andReturn().getResponse().getContentAsString();
-            JsonModel model = JsonModel.create(content);
-            Integer idObj = (Integer) model.get("$.data.id");
+            Integer idObj = (Integer) JsonPath.read(content, "$.data.id");
             TEST_AUTHOR_ADD_ID = idObj;
         } catch (Exception ex) {
             Logger.getLogger(TestAuthorRestController.class.getName()).log(Level.SEVERE, null, ex);
@@ -177,11 +177,11 @@ public class TestAuthorRestController {
         boolean noErrorsFound = true;
         try {
             String newLastName = "NS" + new Date().getTime();
-
             String requestUrl = String.format(MODIFY_AUTHOR_URL, TEST_AUTHOR_MODIFY_ID, "Ed", newLastName);
             this.mockMvc.perform(put(requestUrl).accept(MediaType.APPLICATION_JSON))
-                    .andExpect(status().isOk())
-                    .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                    .andExpect(MockMvcResultMatchers.status().isOk())
+                    .andExpect(MockMvcResultMatchers.content()
+                            .contentType("application/json;charset=UTF-8"))
                     .andExpect(jsonPath("$.data.lastName").value(newLastName))
                     .andExpect(jsonPath("$.status").value(MessageDefinitions.SUCCESS));
         } catch (Exception ex) {
@@ -190,6 +190,7 @@ public class TestAuthorRestController {
         }
         assertTrue("verify no exceptions raised", noErrorsFound);
     }
+
 
     /*
      *  Tests that the controller returns a specific error message when 
@@ -201,8 +202,9 @@ public class TestAuthorRestController {
         try {
             String requestUrl = String.format(ADD_AUTHOR_URL, CaseGen.MARK, CaseGen.TWAIN);
             ResultActions andExpect = this.mockMvc.perform(post(requestUrl).accept(MediaType.APPLICATION_JSON))
-                    .andExpect(status().isOk())
-                    .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                    .andExpect(MockMvcResultMatchers.status().isOk())
+                    .andExpect(MockMvcResultMatchers.content()
+                            .contentType("application/json;charset=UTF-8"))
                     .andExpect(jsonPath("$.EXCEPTION").value(MessageDetailDefinitions.DUPLICATE_AUTHOR_EXCEPTION));
         } catch (Exception ex) {
             Logger.getLogger(TestAuthorRestController.class.getName()).log(Level.SEVERE, null, ex);
@@ -223,8 +225,9 @@ public class TestAuthorRestController {
 
             String requestUrl = String.format(MODIFY_AUTHOR_URL, TEST_AUTHOR_MODIFY_ID, CaseGen.MARK, CaseGen.TWAIN);
             this.mockMvc.perform(put(requestUrl).accept(MediaType.APPLICATION_JSON))
-                    .andExpect(status().isOk())
-                    .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                    .andExpect(MockMvcResultMatchers.status().isOk())
+                    .andExpect(MockMvcResultMatchers.content()
+                            .contentType("application/json;charset=UTF-8"))
                     .andExpect(jsonPath("$.EXCEPTION").value(MessageDetailDefinitions.DUPLICATE_AUTHOR_EXCEPTION));
 
         } catch (Exception ex) {
@@ -248,50 +251,46 @@ public class TestAuthorRestController {
             String url = String.format(DELETE_AUTHOR_URL, TEST_AUTHOR_DELETE_ID);
             ResultActions requestResult = this.mockMvc.perform(delete(url)
                     .accept(MediaType.APPLICATION_JSON))
-                    .andExpect(status().isOk())
-                    .andExpect(content().contentType(MediaType.APPLICATION_JSON));
+                    .andExpect(MockMvcResultMatchers.status().isOk())
+                    .andExpect(MockMvcResultMatchers.content()
+                            .contentType("application/json;charset=UTF-8"));
 
             String content = requestResult.andReturn().getResponse().getContentAsString();
-            JsonModel model = JsonModel.create(content);
-            JSONObject obj = (JSONObject) model.getJsonObject();
-
-            assertTrue("object is a json Object", (obj instanceof JSONObject));
-            String action = obj.get("action").toString();
-            String status = obj.get("status").toString();
-            JSONObject authorData = (JSONObject) obj.get("data");
+            String action = JsonPath.read(content, "$.action");
+            String status = JsonPath.read(content, "$.status");
+            LinkedHashMap authorData = (LinkedHashMap) JsonPath.read(content, "$.data");
             Integer id = (Integer) authorData.get("id");
             assertTrue("action is delete ", action.equals(MessageDefinitions.DEL_OPERATION));
             assertTrue("status is success ", status.equals(MessageDefinitions.SUCCESS));
-            assertTrue("id is Joe smoe's", (TEST_AUTHOR_DELETE_ID == id.intValue()));
+            assertTrue("id is Joe smoe's", (TEST_AUTHOR_DELETE_ID == id));
         } catch (Exception ex) {
             Logger.getLogger(TestAuthorRestController.class.getName()).log(Level.SEVERE, null, ex);
             noErrorsFound = false;
         }
         assertTrue("verify no exceptions raised", noErrorsFound);
-        
+
         noErrorsFound = true;
         // get the new count after the delete
         try {
             ResultActions requestResult = this.mockMvc.perform(get(AuthorRest.EXPORT_ALL_URL)
                     .accept(MediaType.APPLICATION_JSON))
-                    .andExpect(status().isOk())
-                    .andExpect(content().contentType(MediaType.APPLICATION_JSON));
+                    .andExpect(MockMvcResultMatchers.status().isOk())
+                    .andExpect(MockMvcResultMatchers.content()
+                            .contentType("application/json;charset=UTF-8"));
 
             String content = requestResult.andReturn().getResponse().getContentAsString();
-            JsonModel model = JsonModel.create(content);
-            Object obj = model.get("$.authors");
-            assertTrue("object is a json array", (obj instanceof JSONArray));
-            int list_size = ((JSONArray) obj).size();
 
+            JSONArray list = (JSONArray) JsonPath.read(content, "$.authors");
+            assertTrue("object is a json array", (list instanceof JSONArray));
+            int list_size = list.size();
             // finally verify deleted id does not exist in the list of records
-            JSONArray authorList = (JSONArray) obj;
-            JSONObject authorObj;
+            LinkedHashMap authorObj;
             boolean RECORD_FOUND = false;
             Integer author_id;
             for (int nIndex = 0; nIndex < list_size; nIndex++) {
-                authorObj = (JSONObject) authorList.get(nIndex);
+                authorObj = (LinkedHashMap) list.get(nIndex);
                 author_id = (Integer) authorObj.get("id");
-                if (author_id.intValue() == TEST_AUTHOR_DELETE_ID) {
+                if (author_id == TEST_AUTHOR_DELETE_ID) {
                     RECORD_FOUND = true;
                     break;
                 }
@@ -301,7 +300,7 @@ public class TestAuthorRestController {
             Logger.getLogger(TestAuthorRestController.class.getName()).log(Level.SEVERE, null, ex);
             noErrorsFound = false;
         }
-          assertTrue("verify no exceptions raised", noErrorsFound);
+        assertTrue("verify no exceptions raised", noErrorsFound);
     }
 
 }
