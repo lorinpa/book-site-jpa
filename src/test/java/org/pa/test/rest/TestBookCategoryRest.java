@@ -1,11 +1,11 @@
 package org.pa.test.rest;
 
-import com.jayway.jsonpath.JsonPath;
+import com.jayway.jsonpath.JsonModel;
 import java.util.Date;
-import java.util.LinkedHashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import net.minidev.json.JSONArray;
+import net.minidev.json.JSONObject;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -30,7 +30,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.web.context.WebApplicationContext;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
 
@@ -55,9 +54,9 @@ public class TestBookCategoryRest {
     private final static String MODIFY_BOOK_CATEGORY_URL = "/modify/book_category/%d/%d/%d";
     private final static String DELETE_BOOK_CATEGORY_URL = "/delete/book_category/%d";
 
-    /**
-     * *************************
-     */
+    
+
+    /****************************/
     // DELETE record
     private static int TEST_BOOK_CAT_DELETE_ID;
     // used to MODIFY -- 
@@ -66,9 +65,7 @@ public class TestBookCategoryRest {
     private static int TEST_BOOK_CAT_ADD_ID;
     // used for LISt
     private static int HUCK_FINN_HUMOR_BOOK_CAT_ID;
-    /**
-     * * NOTE WE NEED TO CREATE TEMP CATEGORIES FOR OUT TEST *
-     */
+    /*** NOTE WE NEED TO CREATE TEMP CATEGORIES FOR OUT TEST **/
     // DELETE record
     private static int TEST_CATEGORY_DELETE_ID;
     // used to MODIFY -- 
@@ -79,6 +76,7 @@ public class TestBookCategoryRest {
     private static int HUCK_FINN_BOOK_ID;
     private static int FICTION_CATEGORY_ID;
 
+
     /* 
      *  Let's add at least on Author before we run any tests.
      *  In addition let's capture the test category's id value and add the add id to our ArrayList.
@@ -86,6 +84,7 @@ public class TestBookCategoryRest {
      */
     @BeforeClass
     public static void setUpClass() {
+
         // temp categories   
         TEST_CATEGORY_MODIFY_ID = CaseGen.getInstance().createTestCategory(new Date().getTime() + "bkrm");
         TEST_CATEGORY_DELETE_ID = CaseGen.getInstance().createTestCategory(new Date().getTime() + "bkrd");
@@ -100,6 +99,7 @@ public class TestBookCategoryRest {
 
         FICTION_CATEGORY_ID = CaseGen.getInstance().getTestCategory(CaseGen.CATEGORY_FICTION_TITLE);
         HUCK_FINN_HUMOR_BOOK_CAT_ID = CaseGen.getInstance().getTestBookCategory(HUCK_FINN_BOOK_ID, FICTION_CATEGORY_ID);
+
     }
 
     /*  Delete test records which were created in the setUpClass
@@ -116,6 +116,7 @@ public class TestBookCategoryRest {
         CaseGen.getInstance().deleteTestBookCategory(TEST_BOOK_CAT_DELETE_ID);
         CaseGen.getInstance().deleteTestBookCategory(TEST_BOOK_CAT_MODIFY_ID);
         CaseGen.getInstance().deleteTestBookCategory(TEST_BOOK_CAT_ADD_ID);
+
     }
 
     @Before
@@ -133,22 +134,23 @@ public class TestBookCategoryRest {
         try {
             ResultActions requestResult = this.mockMvc.perform(get(LIST_URL)
                     .accept(MediaType.APPLICATION_JSON))
-                    .andExpect(MockMvcResultMatchers.status().isOk())
-                    .andExpect(MockMvcResultMatchers.content()
-                            .contentType("application/json;charset=UTF-8"))
-                    .andExpect(jsonPath("$.book_categories").isArray());
+                    .andExpect(status().isOk())
+                    .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                    .andExpect(jsonPath("$book_categories").isArray());
             String content = requestResult.andReturn().getResponse().getContentAsString();
-            JSONArray obj = (JSONArray) JsonPath.read(content, "$.book_categories");
+            JsonModel model = JsonModel.create(content);
+
+            Object obj = model.get("$.book_categories");
             assertTrue("object is a json array", (obj instanceof JSONArray));
             int list_size = ((JSONArray) obj).size();
             assertTrue("at least 2 book_categories returned", list_size > 0);
 
             JSONArray list = (JSONArray) obj;
-            LinkedHashMap record;
+            JSONObject record;
             boolean RECORD_FOUND = false;
             Integer id;
             for (int nIndex = 0; nIndex < list_size; nIndex++) {
-                record = (LinkedHashMap) list.get(nIndex);
+                record = (JSONObject) list.get(nIndex);
                 id = (Integer) record.get("id");
                 if (id.intValue() == HUCK_FINN_HUMOR_BOOK_CAT_ID) {
                     RECORD_FOUND = true;
@@ -170,14 +172,14 @@ public class TestBookCategoryRest {
         try {
             String requestUrl = String.format(ADD_BOOK_CATEGORY_URL, HUCK_FINN_BOOK_ID, TEST_CATEGORY_ADD_ID);
             ResultActions requestResult = this.mockMvc.perform(post(requestUrl).accept(MediaType.APPLICATION_JSON))
-                    .andExpect(MockMvcResultMatchers.status().isOk())
-                    .andExpect(MockMvcResultMatchers.content()
-                            .contentType("application/json;charset=UTF-8"))
+                    .andExpect(status().isOk())
+                    .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                     .andExpect(jsonPath("$.data.book_id").value(HUCK_FINN_BOOK_ID))
                     .andExpect(jsonPath("$.data.category_id").value(TEST_CATEGORY_ADD_ID))
                     .andExpect(jsonPath("$.status").value("SUCCESS"));
             String content = requestResult.andReturn().getResponse().getContentAsString();
-            Integer id = (Integer) JsonPath.read(content, "$.data.id");
+            JsonModel model = JsonModel.create(content);
+            Integer id = (Integer) model.get("$.data.id");
             TEST_BOOK_CAT_ADD_ID = id;
         } catch (Exception ex) {
             Logger.getLogger(TestBookCategoryRest.class.getName()).log(Level.SEVERE, null, ex);
@@ -190,12 +192,11 @@ public class TestBookCategoryRest {
     public void modifyBookCategoryTest() {
         boolean noErrorsFound = true;
         try {
-            String requestUrl
-                    = String.format(MODIFY_BOOK_CATEGORY_URL, TEST_BOOK_CAT_MODIFY_ID, HUCK_FINN_BOOK_ID, TEST_CATEGORY_MODIFY_ID);
+            String requestUrl = 
+                    String.format(MODIFY_BOOK_CATEGORY_URL, TEST_BOOK_CAT_MODIFY_ID, HUCK_FINN_BOOK_ID, TEST_CATEGORY_MODIFY_ID);
             this.mockMvc.perform(put(requestUrl).accept(MediaType.APPLICATION_JSON))
-                    .andExpect(MockMvcResultMatchers.status().isOk())
-                    .andExpect(MockMvcResultMatchers.content()
-                            .contentType("application/json;charset=UTF-8"))
+                    .andExpect(status().isOk())
+                    .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                     .andExpect(jsonPath("$.data.id").value(TEST_BOOK_CAT_MODIFY_ID))
                     .andExpect(jsonPath("$.data.book_id").value(HUCK_FINN_BOOK_ID))
                     .andExpect(jsonPath("$.data.category_id").value(TEST_CATEGORY_MODIFY_ID))
@@ -217,13 +218,12 @@ public class TestBookCategoryRest {
         try {
             String requestUrl = String.format(ADD_BOOK_CATEGORY_URL, HUCK_FINN_BOOK_ID, FICTION_CATEGORY_ID);
             ResultActions andExpect = this.mockMvc.perform(post(requestUrl).accept(MediaType.APPLICATION_JSON))
-                    .andExpect(MockMvcResultMatchers.status().isOk())
-                    .andExpect(MockMvcResultMatchers.content()
-                            .contentType("application/json;charset=UTF-8"))
+                    .andExpect(status().isOk())
+                    .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                     .andExpect(jsonPath("$.EXCEPTION").value(MessageDetailDefinitions.DUPLICATE_BOOK_CATEGORY_EXCEPTION));
         } catch (Exception ex) {
             Logger.getLogger(TestBookCategoryRest.class.getName()).log(Level.SEVERE, null, ex);
-            noErrorsFound = false;
+             noErrorsFound = false;
         }
         assertTrue("verify no exceptions raised", noErrorsFound);
     }
@@ -234,22 +234,20 @@ public class TestBookCategoryRest {
      */
     @Test
     public void duplicateEditCategoryTest() {
-        boolean noErrorsFound = true;
+         boolean noErrorsFound = true;
         try {
             String requestUrl = String.format(MODIFY_BOOK_CATEGORY_URL, TEST_BOOK_CAT_MODIFY_ID, HUCK_FINN_BOOK_ID, FICTION_CATEGORY_ID);
             this.mockMvc.perform(put(requestUrl).accept(MediaType.APPLICATION_JSON))
-                    .andExpect(MockMvcResultMatchers.status().isOk())
-                    .andExpect(MockMvcResultMatchers.content()
-                            .contentType("application/json;charset=UTF-8"))
+                    .andExpect(status().isOk())
+                    .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                     .andExpect(jsonPath("$.EXCEPTION").value(MessageDetailDefinitions.DUPLICATE_BOOK_CATEGORY_EXCEPTION));
 
         } catch (Exception ex) {
             Logger.getLogger(TestBookCategoryRest.class.getName()).log(Level.SEVERE, null, ex);
-            noErrorsFound = false;
+               noErrorsFound = false;
         }
         assertTrue("verify no exceptions raised", noErrorsFound);
     }
-
 
     /*
      *  Tests the controller processes a delete Review request properly.
@@ -261,19 +259,21 @@ public class TestBookCategoryRest {
      */
     @Test
     public void deleteBookCategoryTest() {
-        boolean noErrorsFound = true;
-        try {
+          boolean noErrorsFound = true;
+         try {
             String url = String.format(DELETE_BOOK_CATEGORY_URL, TEST_BOOK_CAT_DELETE_ID);
             ResultActions requestResult = this.mockMvc.perform(delete(url)
                     .accept(MediaType.APPLICATION_JSON))
-                    .andExpect(MockMvcResultMatchers.status().isOk())
-                    .andExpect(MockMvcResultMatchers.content()
-                            .contentType("application/json;charset=UTF-8"));
+                    .andExpect(status().isOk())
+                    .andExpect(content().contentType(MediaType.APPLICATION_JSON));
 
             String content = requestResult.andReturn().getResponse().getContentAsString();
-            String action = JsonPath.read(content, "$.action");
-            String status = JsonPath.read(content, "$.status");
-            LinkedHashMap categoryData = (LinkedHashMap) JsonPath.read(content, "$.data");
+            JsonModel model = JsonModel.create(content);
+            JSONObject obj = (JSONObject) model.getJsonObject();
+            assertTrue("object is a json Object", (obj instanceof JSONObject));
+            String action = obj.get("action").toString();
+            String status = obj.get("status").toString();
+            JSONObject categoryData = (JSONObject) obj.get("data");
             Integer id = (Integer) categoryData.get("id");
             assertTrue("action is delete ", action.equals(MessageDefinitions.DEL_OPERATION));
             assertTrue("status is success ", status.equals(MessageDefinitions.SUCCESS));
@@ -282,29 +282,29 @@ public class TestBookCategoryRest {
             Logger.getLogger(TestBookCategoryRest.class.getName()).log(Level.SEVERE, null, ex);
             noErrorsFound = false;
         }
-        assertTrue("verify no exceptions raised", noErrorsFound);
+         assertTrue("verify no exceptions raised", noErrorsFound);
 
         // get the new count after the delete
-        noErrorsFound = true;
+          noErrorsFound = true;
         try {
             ResultActions requestResult = this.mockMvc.perform(get(LIST_URL)
                     .accept(MediaType.APPLICATION_JSON))
-                    .andExpect(MockMvcResultMatchers.status().isOk())
-                    .andExpect(MockMvcResultMatchers.content()
-                            .contentType("application/json;charset=UTF-8"));
+                    .andExpect(status().isOk())
+                    .andExpect(content().contentType(MediaType.APPLICATION_JSON));
 
             String content = requestResult.andReturn().getResponse().getContentAsString();
-            JSONArray obj = (JSONArray) JsonPath.read(content, "$.book_categories");
+            JsonModel model = JsonModel.create(content);
+            Object obj = model.get("$.book_categories");
             assertTrue("object is a json array", (obj instanceof JSONArray));
-            int num_book_categories_after_delete = ((JSONArray) obj).size();
+            int  num_book_categories_after_delete = ((JSONArray) obj).size();
             assertTrue("verofy records returned", num_book_categories_after_delete > 0);
             // finally verify deleted id does not exist in the list of records
             JSONArray categoryList = (JSONArray) obj;
-            LinkedHashMap categoryObj;
+            JSONObject categoryObj;
             boolean DELETE_ID_FOUND = false;
             Integer category_id;
             for (int nIndex = 0; nIndex < num_book_categories_after_delete; nIndex++) {
-                categoryObj = (LinkedHashMap) categoryList.get(nIndex);
+                categoryObj = (JSONObject) categoryList.get(nIndex);
                 category_id = (Integer) categoryObj.get("id");
                 if (category_id.intValue() == TEST_BOOK_CAT_DELETE_ID) {
                     DELETE_ID_FOUND = true;
@@ -314,9 +314,9 @@ public class TestBookCategoryRest {
             Assert.assertFalse("verify deleted record id not found", DELETE_ID_FOUND);
         } catch (Exception ex) {
             Logger.getLogger(TestBookCategoryRest.class.getName()).log(Level.SEVERE, null, ex);
-            noErrorsFound = false;
+               noErrorsFound = false;
         }
-        assertTrue("verify no exceptions raised", noErrorsFound);
+         assertTrue("verify no exceptions raised", noErrorsFound);
     }
 
 }

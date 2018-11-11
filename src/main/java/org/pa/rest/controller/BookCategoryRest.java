@@ -75,6 +75,7 @@ public class BookCategoryRest {
         this.categoryRepo = categoryRepo;
     }
 
+
     @RequestMapping(value = EXPORT_ALL_URL, method = RequestMethod.GET, produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public @ResponseBody
@@ -85,7 +86,8 @@ public class BookCategoryRest {
 
         return dto;
     }
-    
+
+
     @RequestMapping(value = ADD_BOOK_CATEGORY_URL, method = RequestMethod.POST, produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public @ResponseBody
@@ -193,7 +195,7 @@ public class BookCategoryRest {
         BookCategory bookCategory = null;
         try {
             bookCategory = bookCatRepo.findById(id);
-            bookCatRepo.delete(bookCategory.getId());
+            bookCatRepo.delete(bookCategory);
             SuccessMessage successMessage = new SuccessMessage();
             successMessage.setEntity(MessageDefinitions.BOOK_CATEGORY_ENTITY);
             successMessage.setAction(MessageDefinitions.DEL_OPERATION);

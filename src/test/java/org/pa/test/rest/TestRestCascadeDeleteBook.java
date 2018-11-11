@@ -1,20 +1,22 @@
 package org.pa.test.rest;
 
-import com.jayway.jsonpath.JsonPath;
 import org.pa.rest.controller.*;
+import com.jayway.jsonpath.JsonModel;
 import java.util.Date;
-import java.util.LinkedHashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import net.minidev.json.JSONArray;
+import net.minidev.json.JSONObject;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.Assert.*;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito.*;
 import org.pa.AppConfig;
 import org.pa.dbutil.CaseGen;
 
@@ -29,18 +31,21 @@ import org.springframework.test.web.servlet.ResultActions;
 
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import org.springframework.web.context.WebApplicationContext;
 
 /**
  *
- * @author lorinpa Note! We use DbUtil to create a test case set. * Reviews and
- * BookCategories are dependent entities. For example, we have 2 reviews of the
- * book Huckleberry Finn. We have also categories Huckleberry Finn as "Humor"
- * and "Fiction".
- *
+ * @author  lorinpa
+ Note!  We use DbUtil to create a test case set.  
+
+ Reviews and BookCategories
+ are dependent entities. For example,  we have 2 reviews of the book Huckleberry Finn.
+ We have also categories Huckleberry Finn as "Humor" and "Fiction".
+
+ 
+ 
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
@@ -55,7 +60,7 @@ public class TestRestCascadeDeleteBook {
     private WebApplicationContext wac;
 
     private MockMvc mockMvc;
-    // a temp review created for test
+ // a temp review created for test
     private static int TEST_REVIEW_ID;
     // a temp book category created for test
     private static int TEST_CATEGORY_ID;
@@ -65,6 +70,8 @@ public class TestRestCascadeDeleteBook {
     private static int TEST_AUTHOR_ID;
     // a temp book written by temp author
     private static int TEST_BOOK_ID;
+ 
+  
 
     @BeforeClass
     public static void setUpClass() {
@@ -80,6 +87,7 @@ public class TestRestCascadeDeleteBook {
         TEST_CATEGORY_ID = CaseGen.getInstance().createTestCategory(new Date().getTime() + "rbcc");
         // now the test book - category
         TEST_BOOK_CATEGORY_ID = CaseGen.getInstance().createTestBookCategory(TEST_BOOK_ID, TEST_CATEGORY_ID);
+     
     }
 
     @AfterClass
@@ -105,81 +113,86 @@ public class TestRestCascadeDeleteBook {
      *   Tests the BookCategory controller displays the result of a cascading delete.
      *   Both BookCategories and Reviews are dependent on the existance of a book entity. If the 
      *   application deletes the book all corresponding bookCategories and reviews are also deleted. 
+     *        
+  
      */
     @Test
     public void deleteBook() {
-        boolean noErrorsFound = true;
-        boolean RECORD_FOUND;
+       boolean noErrorsFound = true;
+       boolean RECORD_FOUND;
         int num_records;
         try {
             this.mockMvc.perform(delete("/delete/book/" + TEST_BOOK_ID).accept(MediaType.APPLICATION_JSON))
-                    .andExpect(MockMvcResultMatchers.status().isOk())
-                    .andExpect(MockMvcResultMatchers.content()
-                            .contentType("application/json;charset=UTF-8"))
-                    .andExpect(jsonPath("$.status").value("SUCCESS"));
-        } catch (Exception ex) {
+                    .andExpect(status().isOk())
+                    .andExpect(content().contentType(MediaType.APPLICATION_JSON)).
+                    andExpect(jsonPath("$.status").value("SUCCESS"));
+          } catch (Exception ex) {
             Logger.getLogger(TestRestCascadeDeleteBook.class.getName()).log(Level.SEVERE, null, ex);
-            noErrorsFound = false;
+             noErrorsFound = false;
         }
-        assertTrue("verify no exceptions raised", noErrorsFound);
+         assertTrue("verify no exceptions raised", noErrorsFound);
+         
+         noErrorsFound = true;
+          try {
 
-        noErrorsFound = true;
-        try {
             ResultActions requestResult = this.mockMvc.perform(get(BookRest.EXPORT_ALL_URL).accept(MediaType.APPLICATION_JSON))
-                    .andExpect(MockMvcResultMatchers.status().isOk())
-                    .andExpect(MockMvcResultMatchers.content()
-                            .contentType("application/json;charset=UTF-8"))
+                    .andExpect(status().isOk())
+                    .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                     .andExpect(jsonPath("$.books").isArray());
             String content = requestResult.andReturn().getResponse().getContentAsString();
-            JSONArray list = (JSONArray) JsonPath.read(content, "$.books");
-            assertTrue("object is a json array", (list instanceof JSONArray));
-            num_records = list.size();
-            assertTrue("verify we have records", num_records > 0);
+            JsonModel model = JsonModel.create(content);
 
-            LinkedHashMap record;
-            Integer id;
-            RECORD_FOUND = false;
-            for (int nIndex = 0; nIndex < num_records; nIndex++) {
-                record = (LinkedHashMap) list.get(nIndex);
-                id = (Integer) record.get("id");
-                if (id == TEST_BOOK_ID) {
-                    RECORD_FOUND = true;
-                    break;
-                }
-            }
-            assertFalse("verify record not found", RECORD_FOUND);
+            Object obj = model.get("$.books");
+            assertTrue("object is a json array", (obj instanceof JSONArray));
+             num_records = ((JSONArray) obj).size();
+             assertTrue("verify we have records", num_records > 0);
+             JSONArray list = (JSONArray) obj;
+             JSONObject record;
+             Integer id;
+             RECORD_FOUND = false;
+             for (int nIndex= 0; nIndex < num_records; nIndex++) {
+                 record =(JSONObject) list.get(nIndex);
+                 id = (Integer)record.get("id");
+                 if (id == TEST_BOOK_ID) {
+                     RECORD_FOUND = true;
+                     break;
+                 }
+             }
+             assertFalse("verify record not found", RECORD_FOUND);
+                     
         } catch (Exception ex) {
             Logger.getLogger(TestRestCascadeDeleteBook.class.getName()).log(Level.SEVERE, null, ex);
-            noErrorsFound = false;
+              noErrorsFound = false;
         }
-        assertTrue("verify no exceptions thrown", noErrorsFound);
-
+          assertTrue("verify no exceptions thrown", noErrorsFound);
+         
         // get LIST of BOOK_CATEGORIES
         try {
             ResultActions requestResult = this.mockMvc.perform(get("/export/book_category/all")
                     .accept(MediaType.APPLICATION_JSON))
-                    .andExpect(MockMvcResultMatchers.status().isOk())
-                    .andExpect(MockMvcResultMatchers.content()
-                            .contentType("application/json;charset=UTF-8"))
-                    .andExpect(jsonPath("$.book_categories").isArray());
+                    .andExpect(status().isOk())
+                    .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                    .andExpect(jsonPath("$book_categories").isArray());
 
             String content = requestResult.andReturn().getResponse().getContentAsString();
-            JSONArray list = (JSONArray) JsonPath.read(content, "$.book_categories");
-            num_records = list.size();
-            assertTrue("verify we have records", num_records > 0);
-
-            LinkedHashMap record;
-            Integer id;
-            RECORD_FOUND = false;
-            for (int nIndex = 0; nIndex < num_records; nIndex++) {
-                record = (LinkedHashMap) list.get(nIndex);
-                id = (Integer) record.get("book_id");
-                if (id == TEST_BOOK_ID) {
-                    RECORD_FOUND = true;
-                    break;
-                }
-            }
-            assertFalse("verify record not found", RECORD_FOUND);
+            JsonModel model = JsonModel.create(content);
+            Object obj = model.get("$.book_categories");
+            num_records = ((JSONArray) obj).size();
+             assertTrue("verify we have records", num_records > 0);
+             JSONArray list = (JSONArray) obj;
+             JSONObject record;
+             Integer id;
+             RECORD_FOUND = false;
+             for (int nIndex= 0; nIndex < num_records; nIndex++) {
+                 record =(JSONObject) list.get(nIndex);
+                 id = (Integer)record.get("book_id");
+                 if (id == TEST_BOOK_ID) {
+                     RECORD_FOUND = true;
+                     break;
+                 }
+             }
+             assertFalse("verify record not found", RECORD_FOUND);
+           
         } catch (Exception ex) {
             Logger.getLogger(TestRestCascadeDeleteBook.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -187,30 +200,32 @@ public class TestRestCascadeDeleteBook {
         try {
             ResultActions requestResult = this.mockMvc.perform(get("/export/review/all")
                     .accept(MediaType.APPLICATION_JSON))
-                    .andExpect(MockMvcResultMatchers.status().isOk())
-                    .andExpect(MockMvcResultMatchers.content()
-                            .contentType("application/json;charset=UTF-8"));
+                    .andExpect(status().isOk())
+                    .andExpect(content().contentType(MediaType.APPLICATION_JSON));
 
             String content = requestResult.andReturn().getResponse().getContentAsString();
-            JSONArray list = (JSONArray) JsonPath.read(content, "$.reviews");
-            assertTrue("object is a json array", (list instanceof JSONArray));
-            num_records = list.size();
-            assertTrue("verify we have records", num_records > 0);
+            JsonModel model = JsonModel.create(content);
 
-            LinkedHashMap record;
-            Integer id;
-            RECORD_FOUND = false;
-            for (int nIndex = 0; nIndex < num_records; nIndex++) {
-                record = (LinkedHashMap) list.get(nIndex);
-                id = (Integer) record.get("book_id");
-                if (id == TEST_BOOK_ID) {
-                    RECORD_FOUND = true;
-                    break;
-                }
-            }
-            assertFalse("verify record not found", RECORD_FOUND);
+            Object obj = model.get("$.reviews");
+            assertTrue("object is a json array", (obj instanceof JSONArray));
+             num_records= ((JSONArray) obj).size();
+            assertTrue("verify we have records", num_records > 0);
+             JSONArray list = (JSONArray) obj;
+             JSONObject record;
+             Integer id;
+             RECORD_FOUND = false;
+             for (int nIndex= 0; nIndex < num_records; nIndex++) {
+                 record =(JSONObject) list.get(nIndex);
+                 id = (Integer)record.get("book_id");
+                 if (id == TEST_BOOK_ID) {
+                     RECORD_FOUND = true;
+                     break;
+                 }
+             }
+             assertFalse("verify record not found", RECORD_FOUND);
         } catch (Exception ex) {
             Logger.getLogger(TestRestCascadeDeleteBook.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
 }

@@ -64,9 +64,11 @@ public class ReviewRest {
     @ResponseStatus(HttpStatus.OK)
     public @ResponseBody
     Map<String, List> exportToJson(Model model) throws Exception {
+
         Map<String, List> dto = new HashMap<>();
         List<ReviewExport> list = reviewRepo.exportAll();
         dto.put("reviews", list);
+
         return dto;
     }
 
@@ -75,6 +77,7 @@ public class ReviewRest {
     public @ResponseBody
     Object addReview(@PathVariable String body, @PathVariable Integer stars, @PathVariable Integer book_id) {
         Review review = null;
+
         try {
             review = new Review();
             review.setBody(body);
@@ -172,7 +175,7 @@ public class ReviewRest {
         Review review = null;
         try {
             review = reviewRepo.findById(id);
-            reviewRepo.delete(review.getId());
+            reviewRepo.delete(review);
             SuccessMessage successMessage = new SuccessMessage();
             successMessage.setEntity(MessageDefinitions.REVIEW_ENTITY);
             successMessage.setAction(MessageDefinitions.DEL_OPERATION);

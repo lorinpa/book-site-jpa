@@ -1,12 +1,12 @@
 package org.pa.test.rest;
 
-import com.jayway.jsonpath.JsonPath;
+import com.jayway.jsonpath.JsonModel;
 import java.util.Date;
-import java.util.LinkedHashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static junit.framework.Assert.assertFalse;
 import net.minidev.json.JSONArray;
+import net.minidev.json.JSONObject;
 import org.junit.After;
 import org.junit.AfterClass;
 import static org.junit.Assert.assertTrue;
@@ -29,7 +29,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.web.context.WebApplicationContext;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
 
@@ -119,72 +118,72 @@ public class TestReviewRestController {
         try {
             ResultActions requestResult = this.mockMvc.perform(get(LIST_URL)
                     .accept(MediaType.APPLICATION_JSON))
-                    .andExpect(MockMvcResultMatchers.status().isOk())
-                    .andExpect(MockMvcResultMatchers.content()
-                            .contentType("application/json;charset=UTF-8"))
+                    .andExpect(status().isOk())
+                    .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                     .andExpect(jsonPath("$.reviews").isArray());
-
+                 
             String content = requestResult.andReturn().getResponse().getContentAsString();
-            JSONArray list = (JSONArray) JsonPath.read(content, "$.reviews");
-            assertTrue("object is a json array", (list instanceof JSONArray));
-            int num_reviews = list.size();
+            JsonModel model = JsonModel.create(content);
+            Object obj = model.get("$.reviews");
+            assertTrue("object is a json array", (obj instanceof JSONArray));
+            int num_reviews = ((JSONArray) obj).size();
             assertTrue("verify we have records", num_reviews > 0);
             boolean RECORD_FOUND = false;
-            LinkedHashMap record;
+            JSONArray list = (JSONArray) obj;
+            JSONObject record;
             Integer id;
-            for (int nIndex = 0; nIndex < num_reviews; nIndex++) {
-                record = (LinkedHashMap) list.get(nIndex);
-                id = (Integer) record.get("id");
-                if (id == HUCK_FINN_5_STAR_REVIEW) {
+            for (int nIndex= 0; nIndex < num_reviews; nIndex++) {
+                record =(JSONObject) list.get(nIndex);
+                id = (Integer)record.get("id");
+                if (id == HUCK_FINN_5_STAR_REVIEW ) {
                     RECORD_FOUND = true;
-                    break;
+                    break;                      
                 }
             }
             assertTrue("verify we found record", RECORD_FOUND);
         } catch (Exception ex) {
             Logger.getLogger(TestReviewRestController.class.getName()).log(Level.SEVERE, null, ex);
-            noErrorsFound = false;
+             noErrorsFound = false;
         }
-        assertTrue("verify no exceptions raised", noErrorsFound);
+         assertTrue("verify no exceptions raised", noErrorsFound);
     }
 
     @Test
     public void addReviewTest() {
-        boolean noErrorsFound = true;
+          boolean noErrorsFound = true;
         try {
-            String body = "A new added review" + new Date().getTime();
+            String body = "A new added review"+new Date().getTime();
             int stars = 3;
 
             String requestUrl = String.format(ADD_REVIEW_URL, body, stars, HUCK_FINN_BOOK_ID);
             ResultActions requestResult = this.mockMvc.perform(post(requestUrl).accept(MediaType.APPLICATION_JSON))
-                    .andExpect(MockMvcResultMatchers.status().isOk())
-                    .andExpect(MockMvcResultMatchers.content()
-                            .contentType("application/json;charset=UTF-8"))
+                    .andExpect(status().isOk())
+                    .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                     .andExpect(jsonPath("$.data.body").value(body))
                     .andExpect(jsonPath("$.data.stars").value(stars))
                     .andExpect(jsonPath("$.data.book_id").value(HUCK_FINN_BOOK_ID))
                     .andExpect(jsonPath("$.status").value("SUCCESS"));
-
-            String content = requestResult.andReturn().getResponse().getContentAsString();
-            TEST_REVIEW_ID_ADD = (Integer) JsonPath.read(content, "$.data.id");
+            
+             String content = requestResult.andReturn().getResponse().getContentAsString();
+            JsonModel model = JsonModel.create(content);
+            TEST_REVIEW_ID_ADD = (Integer) model.get("$.data.id");
         } catch (Exception ex) {
             Logger.getLogger(TestReviewRestController.class.getName()).log(Level.SEVERE, null, ex);
             noErrorsFound = false;
         }
-        assertTrue("verify no exceptions raised", noErrorsFound);
+         assertTrue("verify no exceptions raised", noErrorsFound);
     }
 
     @Test
     public void modifyReviewTest() {
-        boolean noErrorsFound = true;
+          boolean noErrorsFound = true;
         try {
-            String body = "this is a modified review" + new Date().getTime();
+            String body = "this is a modified review"+ new Date().getTime();
             int stars = 2; // not 3
             String requestUrl = String.format(MODIFY_REVIEW_URL, TEST_REVIEW_ID_MODIFY, body, stars, HUCK_FINN_BOOK_ID);
             this.mockMvc.perform(put(requestUrl).accept(MediaType.APPLICATION_JSON))
-                    .andExpect(MockMvcResultMatchers.status().isOk())
-                    .andExpect(MockMvcResultMatchers.content()
-                            .contentType("application/json;charset=UTF-8"))
+                    .andExpect(status().isOk())
+                    .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                     .andExpect(jsonPath("$.data.id").value(TEST_REVIEW_ID_MODIFY))
                     .andExpect(jsonPath("$.data.body").value(body))
                     .andExpect(jsonPath("$.data.stars").value(stars))
@@ -192,9 +191,9 @@ public class TestReviewRestController {
                     .andExpect(jsonPath("$.status").value(MessageDefinitions.SUCCESS));
         } catch (Exception ex) {
             Logger.getLogger(TestReviewRestController.class.getName()).log(Level.SEVERE, null, ex);
-            noErrorsFound = false;
+             noErrorsFound = false;
         }
-        assertTrue("verify no exceptions raised", noErrorsFound);
+         assertTrue("verify no exceptions raised", noErrorsFound);
     }
 
     /*
@@ -204,51 +203,57 @@ public class TestReviewRestController {
      */
     @Test
     public void deleteReviewTest() {
-        boolean noErrorsFound = true;
+          boolean noErrorsFound = true;
+       
 
         try {
             String url = String.format(DELETE_REVIEW_URL, TEST_REVIEW_ID_DELETE);
             ResultActions requestResult = this.mockMvc.perform(delete(url)
                     .accept(MediaType.APPLICATION_JSON))
-                    .andExpect(MockMvcResultMatchers.status().isOk())
-                    .andExpect(MockMvcResultMatchers.content()
-                            .contentType("application/json;charset=UTF-8"));
+                    .andExpect(status().isOk())
+                    .andExpect(content().contentType(MediaType.APPLICATION_JSON));
+
             String content = requestResult.andReturn().getResponse().getContentAsString();
-            String action = JsonPath.read(content, "$.action");
-            String status = JsonPath.read(content, "$.status");
-            LinkedHashMap reviewData = (LinkedHashMap) JsonPath.read(content, "$.data");
+            JsonModel model = JsonModel.create(content);
+            JSONObject obj = (JSONObject) model.getJsonObject();
+
+            assertTrue("object is a json Object", (obj instanceof JSONObject));
+            String action = obj.get("action").toString();
+            String status = obj.get("status").toString();
+            JSONObject reviewData = (JSONObject) obj.get("data");
             Integer id = (Integer) reviewData.get("id");
             assertTrue("action is delete ", action.equals(MessageDefinitions.DEL_OPERATION));
             assertTrue("status is success ", status.equals(MessageDefinitions.SUCCESS));
-            assertTrue("id is for review we wanted to delete", (TEST_REVIEW_ID_DELETE == id));
+            assertTrue("id is for review we wanted to delete", (TEST_REVIEW_ID_DELETE == id.intValue()));
         } catch (Exception ex) {
             Logger.getLogger(TestReviewRestController.class.getName()).log(Level.SEVERE, null, ex);
             noErrorsFound = false;
         }
-        assertTrue("verify no exceptions raised", noErrorsFound);
+         assertTrue("verify no exceptions raised", noErrorsFound);
 
         // get the new count after the delete
-        noErrorsFound = true;
+         noErrorsFound = true;
         try {
             ResultActions requestResult = this.mockMvc.perform(get(LIST_URL)
                     .accept(MediaType.APPLICATION_JSON))
-                    .andExpect(MockMvcResultMatchers.status().isOk())
-                    .andExpect(MockMvcResultMatchers.content()
-                            .contentType("application/json;charset=UTF-8"));
+                    .andExpect(status().isOk())
+                    .andExpect(content().contentType(MediaType.APPLICATION_JSON));
 
             String content = requestResult.andReturn().getResponse().getContentAsString();
-            JSONArray list = (JSONArray) JsonPath.read(content, "$.reviews");
-            assertTrue("object is a json array", (list instanceof JSONArray));
-            int num_reviews_after_delete = list.size();
+            JsonModel model = JsonModel.create(content);
+            Object obj = model.get("$.reviews");
+            assertTrue("object is a json array", (obj instanceof JSONArray));
+            int num_reviews_after_delete = ((JSONArray) obj).size();
             assertTrue("verify we have record", num_reviews_after_delete > 0);
             // finally verify deleted id does not exist in the list of records
-            LinkedHashMap reviewObj;
+            JSONArray reviewList = (JSONArray) obj;
+            JSONObject reviewObj;
             boolean RECORD_FOUND = false;
             Integer review_id;
             for (int nIndex = 0; nIndex < num_reviews_after_delete; nIndex++) {
-                reviewObj = (LinkedHashMap) list.get(nIndex);
+                reviewObj = (JSONObject) reviewList.get(nIndex);
                 review_id = (Integer) reviewObj.get("id");
-                if (review_id == TEST_REVIEW_ID_DELETE) {
+                if (review_id.intValue() == TEST_REVIEW_ID_DELETE) {
                     RECORD_FOUND = true;
                     break;
                 }
@@ -256,8 +261,9 @@ public class TestReviewRestController {
             assertFalse("verify deleted record id not found", RECORD_FOUND);
         } catch (Exception ex) {
             Logger.getLogger(TestReviewRestController.class.getName()).log(Level.SEVERE, null, ex);
-            noErrorsFound = false;
+             noErrorsFound = false;
         }
-        assertTrue("verify no exceptions raised", noErrorsFound);
+          assertTrue("verify no exceptions raised", noErrorsFound);
     }
+
 }

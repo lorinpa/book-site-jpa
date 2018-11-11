@@ -1,12 +1,11 @@
 package org.pa.test.rest;
 
-//import com.jayway.jsonpath.JsonModel;
-import com.jayway.jsonpath.JsonPath;
+import com.jayway.jsonpath.JsonModel;
 import java.util.Date;
-import java.util.LinkedHashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import net.minidev.json.JSONArray;
+import net.minidev.json.JSONObject;
 import org.junit.After;
 import org.junit.AfterClass;
 import static org.junit.Assert.assertFalse;
@@ -31,7 +30,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.web.context.WebApplicationContext;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
 
@@ -56,6 +54,8 @@ public class TestCategoryRestController {
     private final static String MODIFY_CATEGORY_URL = "/modify/category/%d/%s";
     private final static String DELETE_CATEGORY_URL = "/delete/category/%d";
 
+  
+
     // DELETE record
     private static int TEST_CATEGORY_DELETE_ID;
     // used to MODIFY -- 
@@ -75,7 +75,7 @@ public class TestCategoryRestController {
         FICTION_CATEGORY_ID = CaseGen.getInstance().getTestCategory(CaseGen.CATEGORY_FICTION_TITLE);
         TEST_CATEGORY_DELETE_ID = CaseGen.getInstance().createTestCategory(new Date().getTime() + "dr");
         TEST_CATEGORY_MODIFY_ID = CaseGen.getInstance().createTestCategory(new Date().getTime() + "mr");
-    }
+ }
 
     /*  Delete test records which were created in the setUpClass
      *  When we are done with the suite of tests. We get each record id created for the test suite.
@@ -103,9 +103,8 @@ public class TestCategoryRestController {
         try {
             ResultActions requestResult = this.mockMvc.perform(get(LIST_URL)
                     .accept(MediaType.APPLICATION_JSON))
-                    .andExpect(MockMvcResultMatchers.status().isOk())
-                    .andExpect(MockMvcResultMatchers.content()
-                            .contentType("application/json;charset=UTF-8"))
+                    .andExpect(status().isOk())
+                    .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                     .andExpect(jsonPath("$.categories").isArray())
                     .andExpect((jsonPath("$.categories[0].id").value(FICTION_CATEGORY_ID)));
             /*
@@ -113,17 +112,18 @@ public class TestCategoryRestController {
              *   We  walk the response data directly.
              */
             String content = requestResult.andReturn().getResponse().getContentAsString();
-            Object obj = JsonPath.read(content, "$.categories");
+            JsonModel model = JsonModel.create(content);
+            Object obj = model.get("$.categories");
             assertTrue("object is a json array", (obj instanceof JSONArray));
             int num_categories = ((JSONArray) obj).size();
             assertTrue("at least 1 category returned", num_categories > 0);
             // let's find FICTION
             JSONArray list = (JSONArray) obj;
-            LinkedHashMap row = null;
+            JSONObject row = null;
             Integer id = null;
             boolean RECORD_FOUND = false;
             for (int nIndex = 0; nIndex < num_categories; nIndex++) {
-                row = (LinkedHashMap) list.get(nIndex);
+                row = (JSONObject) list.get(nIndex);
                 id = (Integer) row.get("id");
                 if (id == FICTION_CATEGORY_ID) {
                     RECORD_FOUND = true;
@@ -145,13 +145,13 @@ public class TestCategoryRestController {
             String title = new Date().getTime() + "a";
             String requestUrl = String.format(ADD_CATEGORY_URL, title);
             ResultActions requestResult = this.mockMvc.perform(post(requestUrl).accept(MediaType.APPLICATION_JSON))
-                    .andExpect(MockMvcResultMatchers.status().isOk())
-                    .andExpect(MockMvcResultMatchers.content()
-                            .contentType("application/json;charset=UTF-8"))
+                    .andExpect(status().isOk())
+                    .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                     .andExpect(jsonPath("$.data.title").value(title))
                     .andExpect(jsonPath("$.status").value("SUCCESS"));
             String content = requestResult.andReturn().getResponse().getContentAsString();
-            Integer id = (Integer) JsonPath.read(content, "$.data.id");
+            JsonModel model = JsonModel.create(content);
+            Integer id = (Integer) model.get("$.data.id");
             TEST_CATEGORY_ADD_ID = id;
         } catch (Exception ex) {
             Logger.getLogger(TestCategoryRestController.class.getName()).log(Level.SEVERE, null, ex);
@@ -167,9 +167,8 @@ public class TestCategoryRestController {
             String newTitle = new Date().getTime() + "mc";
             String requestUrl = String.format(MODIFY_CATEGORY_URL, TEST_CATEGORY_MODIFY_ID, newTitle);
             this.mockMvc.perform(put(requestUrl).accept(MediaType.APPLICATION_JSON))
-                    .andExpect(MockMvcResultMatchers.status().isOk())
-                    .andExpect(MockMvcResultMatchers.content()
-                            .contentType("application/json;charset=UTF-8"))
+                    .andExpect(status().isOk())
+                    .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                     .andExpect(jsonPath("$.data.title").value(newTitle))
                     .andExpect(jsonPath("$.status").value(MessageDefinitions.SUCCESS));
         } catch (Exception ex) {
@@ -189,9 +188,8 @@ public class TestCategoryRestController {
         try {
             String requestUrl = String.format(ADD_CATEGORY_URL, CaseGen.CATEGORY_FICTION_TITLE);
             ResultActions andExpect = this.mockMvc.perform(post(requestUrl).accept(MediaType.APPLICATION_JSON))
-                    .andExpect(MockMvcResultMatchers.status().isOk())
-                    .andExpect(MockMvcResultMatchers.content()
-                            .contentType("application/json;charset=UTF-8"))
+                    .andExpect(status().isOk())
+                    .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                     .andExpect(jsonPath("$.EXCEPTION").value(MessageDetailDefinitions.DUPLICATE_CATEGORY_EXCEPTION));
         } catch (Exception ex) {
             Logger.getLogger(TestCategoryRestController.class.getName()).log(Level.SEVERE, null, ex);
@@ -210,9 +208,8 @@ public class TestCategoryRestController {
         try {
             String requestUrl = String.format(MODIFY_CATEGORY_URL, TEST_CATEGORY_MODIFY_ID, CaseGen.CATEGORY_FICTION_TITLE);
             this.mockMvc.perform(put(requestUrl).accept(MediaType.APPLICATION_JSON))
-                    .andExpect(MockMvcResultMatchers.status().isOk())
-                    .andExpect(MockMvcResultMatchers.content()
-                            .contentType("application/json;charset=UTF-8"))
+                    .andExpect(status().isOk())
+                    .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                     .andExpect(jsonPath("$.EXCEPTION").value(MessageDetailDefinitions.DUPLICATE_CATEGORY_EXCEPTION));
         } catch (Exception ex) {
             Logger.getLogger(TestCategoryRestController.class.getName()).log(Level.SEVERE, null, ex);
@@ -236,18 +233,21 @@ public class TestCategoryRestController {
             String url = String.format(DELETE_CATEGORY_URL, TEST_CATEGORY_DELETE_ID);
             ResultActions requestResult = this.mockMvc.perform(delete(url)
                     .accept(MediaType.APPLICATION_JSON))
-                    .andExpect(MockMvcResultMatchers.status().isOk())
-                    .andExpect(MockMvcResultMatchers.content()
-                            .contentType("application/json;charset=UTF-8"));
+                    .andExpect(status().isOk())
+                    .andExpect(content().contentType(MediaType.APPLICATION_JSON));
 
             String content = requestResult.andReturn().getResponse().getContentAsString();
-            String action = JsonPath.read(content, "$.action");
-            String status = JsonPath.read(content, "$.status");
-            LinkedHashMap categoryData = (LinkedHashMap) JsonPath.read(content, "$.data");
+            JsonModel model = JsonModel.create(content);
+            JSONObject obj = (JSONObject) model.getJsonObject();
+
+            assertTrue("object is a json Object", (obj instanceof JSONObject));
+            String action = obj.get("action").toString();
+            String status = obj.get("status").toString();
+            JSONObject categoryData = (JSONObject) obj.get("data");
             Integer id = (Integer) categoryData.get("id");
             assertTrue("action is delete ", action.equals(MessageDefinitions.DEL_OPERATION));
             assertTrue("status is success ", status.equals(MessageDefinitions.SUCCESS));
-            assertTrue("id is original", (TEST_CATEGORY_DELETE_ID == id));
+            assertTrue("id is original", (TEST_CATEGORY_DELETE_ID == id.intValue()));
         } catch (Exception ex) {
             Logger.getLogger(TestCategoryRestController.class.getName()).log(Level.SEVERE, null, ex);
             no_errors = false;
@@ -259,19 +259,21 @@ public class TestCategoryRestController {
         try {
             ResultActions requestResult = this.mockMvc.perform(get(LIST_URL)
                     .accept(MediaType.APPLICATION_JSON))
-                    .andExpect(MockMvcResultMatchers.status().isOk())
-                    .andExpect(MockMvcResultMatchers.content()
-                            .contentType("application/json;charset=UTF-8"));
+                    .andExpect(status().isOk())
+                    .andExpect(content().contentType(MediaType.APPLICATION_JSON));
+
             String content = requestResult.andReturn().getResponse().getContentAsString();
-            JSONArray obj = (JSONArray) JsonPath.read(content, "$.categories");
-            int num_categories = ((JSONArray) obj).size();
-            // finally verify deleted id does not exist in the list of records
-            LinkedHashMap row;
-            JSONArray list = (JSONArray) obj;
+            JsonModel model = JsonModel.create(content);
+            Object obj = model.get("$.categories");
+            assertTrue("object is a json array", (obj instanceof JSONArray));
+            int num_categories = ((JSONArray)obj).size();
+             // finally verify deleted id does not exist in the list of records
+            JSONObject row;
+            JSONArray list = (JSONArray)obj;
             Integer id;
             boolean RECORD_FOUND = false;
             for (int nIndex = 0; nIndex < num_categories; nIndex++) {
-                row = (LinkedHashMap) list.get(nIndex);
+                row = (JSONObject) list.get(nIndex);
                 id = (Integer) row.get("id");
                 if (id == TEST_CATEGORY_DELETE_ID) {
                     RECORD_FOUND = true;
@@ -281,9 +283,9 @@ public class TestCategoryRestController {
             assertFalse("verify we did not find record", RECORD_FOUND);
         } catch (Exception ex) {
             Logger.getLogger(TestCategoryRestController.class.getName()).log(Level.SEVERE, null, ex);
-            no_errors = false;
+              no_errors = false;
         }
-        assertTrue("verify there were no errors", no_errors);
+         assertTrue("verify there were no errors", no_errors);
     }
 
 }
