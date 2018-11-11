@@ -6,7 +6,6 @@ import org.pa.dto.BookCategoryExport;
 import org.pa.entity.Book;
 import org.pa.entity.BookCategory;
 import org.pa.entity.Category;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -14,7 +13,7 @@ import org.springframework.stereotype.Repository;
  * @author lorinpa
  */
 @Repository
-public interface BookCategoriesRepository extends CrudRepository {
+public interface BookCategoriesRepository  {
     
     public Object addNew(Object s)  throws Exception;
 

@@ -9,7 +9,6 @@ import java.util.List;
 import org.pa.dto.ReviewExport;
 import org.pa.entity.Book;
 import org.pa.entity.Review;
-import org.springframework.data.repository.CrudRepository;
 
 /**
  *
@@ -17,7 +16,7 @@ import org.springframework.data.repository.CrudRepository;
  * lorinpa
  * public-action.org
  */
-public interface ReviewsRepository extends CrudRepository {
+public interface ReviewsRepository  {
 
     public List<Review> findAll();
     
