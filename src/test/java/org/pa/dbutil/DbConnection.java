@@ -14,13 +14,11 @@ public class DbConnection {
   
     private final static String DB_DEV_URL = "jdbc:h2:~/development/workspace/java-projects/book-site-jpa/db/dev.db;AUTO_SERVER=TRUE";
     private final static String DB_TEST_URL = "jdbc:h2:~/development/workspace/java-projects/book-site-jpa/db/test.db;AUTO_SERVER=TRUE";
-    
-  
+   
     private final static String DRIVER = "org.h2.Driver";
     private final static String DB_USER = "";
     private final static String DB_PASS = "";
-  
-
+ 
     private int instace;
 
     public DbConnection(int instance) {

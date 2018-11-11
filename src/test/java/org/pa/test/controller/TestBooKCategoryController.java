@@ -15,12 +15,10 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.Assert.*;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito.*;
 import org.pa.AppConfig;
 import org.pa.dbutil.CaseGen;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,10 +45,10 @@ import org.springframework.web.context.WebApplicationContext;
 /**
  *
  * @author lorinpa
- 
- Note! We use our CaseGen utility to create a set of test data.
-
-
+ *
+ * Note! We use our CaseGen utility to create a set of test data.
+ *
+ *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
@@ -67,7 +65,7 @@ public class TestBooKCategoryController {
 
     private final String REDIRECT_HOME_NAME = "redirect:list.htm";
     private final String HOME_NAME = "book-cat/list";
-    
+
     // DELETE record
     private static int TEST_BOOK_CAT_DELETE_ID;
     // used to MODIFY -- 
@@ -76,7 +74,9 @@ public class TestBooKCategoryController {
     private static int TEST_BOOK_CAT_ADD_ID;
     // used for LISt
     private static int HUCK_FINN_HUMOR_BOOK_CAT_ID;
-    /*** NOTE WE NEED TO CREATE TEMP CATEGORIES FOR OUT TEST **/
+    /**
+     * * NOTE WE NEED TO CREATE TEMP CATEGORIES FOR OUT TEST *
+     */
     // DELETE record
     private static int TEST_CATEGORY_DELETE_ID;
     // used to MODIFY -- 
@@ -137,9 +137,9 @@ public class TestBooKCategoryController {
 
             ResultActions requestResult
                     = this.mockMvc.perform(get("/book-cat/list.htm"))
-                    .andExpect(view().name("book-cat/list"))
-                    .andExpect(model().attributeExists("list"))
-                    .andExpect(forwardedUrl("/WEB-INF/views/book-cat/list.jsp"));
+                            .andExpect(view().name("book-cat/list"))
+                            .andExpect(model().attributeExists("list"))
+                            .andExpect(forwardedUrl("/WEB-INF/views/book-cat/list.jsp"));
             List<BookCategory> list = (List<BookCategory>) requestResult.andReturn().getModelAndView().getModelMap().get("list");
             assertTrue("verify list has records ", (list.size() > 0));
             boolean RECORD_FOUND = false;
@@ -203,9 +203,9 @@ public class TestBooKCategoryController {
                     .andExpect(status().isOk())
                     .andExpect(view().name(HOME_NAME));
             BookCategory bookCatResult = (BookCategory) andExpect.andReturn().getModelAndView().getModelMap().get("bookCategory");
-            assertTrue("verify the id did not change", bookCatResult.getId().intValue() == TEST_BOOK_CAT_MODIFY_ID);
-            assertTrue(bookCatResult.getBookId().getId().intValue() == HUCK_FINN_BOOK_ID);
-            assertTrue(bookCatResult.getCategoryId().getId().intValue() == TEST_CATEGORY_MODIFY_ID);
+            assertTrue("verify the id did not change", bookCatResult.getId() == TEST_BOOK_CAT_MODIFY_ID);
+            assertTrue(bookCatResult.getBookId().getId() == HUCK_FINN_BOOK_ID);
+            assertTrue(bookCatResult.getCategoryId().getId() == TEST_CATEGORY_MODIFY_ID);
         } catch (Exception ex) {
             Logger.getLogger(TestBooKCategoryController.class.getName()).log(Level.SEVERE, null, ex);
             noErrorsFound = false;
@@ -246,19 +246,19 @@ public class TestBooKCategoryController {
         try {
             ResultActions requestResult
                     = this.mockMvc.perform(get("/book-cat/list.htm"))
-                    .andExpect(view().name("book-cat/list"))
-                    .andExpect(model().attributeExists("list"))
-                    .andExpect(forwardedUrl("/WEB-INF/views/book-cat/list.jsp"));
+                            .andExpect(view().name("book-cat/list"))
+                            .andExpect(model().attributeExists("list"))
+                            .andExpect(forwardedUrl("/WEB-INF/views/book-cat/list.jsp"));
             List<BookCategory> list = (List<BookCategory>) requestResult.andReturn().getModelAndView().getModelMap().get("list");
-            assertTrue("verify we have records ", (list.size() > 0 ));
+            assertTrue("verify we have records ", (list.size() > 0));
             boolean RECORD_FOUND = false;
             for (BookCategory bookCat : list) {
-                if (bookCat.getId().intValue() == TEST_BOOK_CAT_DELETE_ID) {
+                if (bookCat.getId() == TEST_BOOK_CAT_DELETE_ID) {
                     RECORD_FOUND = true;
                     break;
                 }
             }
-            assertFalse("verify record is not found", RECORD_FOUND);     
+            assertFalse("verify record is not found", RECORD_FOUND);
         } catch (Exception ex) {
             Logger.getLogger(TestBooKCategoryController.class.getName()).log(Level.SEVERE, null, ex);
             noErrorsFound = false;
@@ -290,7 +290,7 @@ public class TestBooKCategoryController {
             Logger.getLogger(TestBooKCategoryController.class.getName()).log(Level.SEVERE, null, ex);
             noErrorsFound = false;
         }
-         assertTrue("verify no exceptions raised", noErrorsFound);
+        assertTrue("verify no exceptions raised", noErrorsFound);
     }
 
     /*
@@ -300,12 +300,12 @@ public class TestBooKCategoryController {
      */
     @Test
     public void testModDuplicate() {
-         boolean noErrorsFound = true;
+        boolean noErrorsFound = true;
         try {
             ResultActions requestResult = mockMvc.perform(post("/book-cat/edit")
                     .param("id", TEST_BOOK_CAT_MODIFY_ID + "")
-                    .param("bookId.id", HUCK_FINN_BOOK_ID +"")
-                    .param("categoryId.id",  FICTION_CATEGORY_ID+ "")
+                    .param("bookId.id", HUCK_FINN_BOOK_ID + "")
+                    .param("categoryId.id", FICTION_CATEGORY_ID + "")
                     .contentType(MediaType.APPLICATION_FORM_URLENCODED))
                     .andExpect(status().isOk())
                     .andExpect(view().name("book-cat/edit"));
@@ -315,9 +315,8 @@ public class TestBooKCategoryController {
             assertThat(bindingResult.getAllErrors(), hasItem(new ObjectError("bookCat", MessageDetailDefinitions.DUPLICATE_BOOK_CATEGORY_EXCEPTION)));
         } catch (Exception ex) {
             Logger.getLogger(TestBooKCategoryController.class.getName()).log(Level.SEVERE, null, ex);
-             noErrorsFound = false;
+            noErrorsFound = false;
         }
-          assertTrue("verify no exceptions raised", noErrorsFound);
+        assertTrue("verify no exceptions raised", noErrorsFound);
     }
-
 }

@@ -31,16 +31,10 @@ public class BooksRepositoryImpl implements BooksRepository {
     @Transactional
     @Override
     public Book update(Integer id, String title, Author author) {
-
         Book book = findById(id);
         book.setTitle(title);
         book.setAuthorId(author);
-    //    System.out.println("Book update with Integer signature called");
         entityManager.merge(book);
-
-    //    entityManager.flush();
-    //    entityManager.refresh(book);
-
         return book;
     }
 
@@ -55,8 +49,6 @@ public class BooksRepositoryImpl implements BooksRepository {
         return book;
     }
 
-  
-
     @Transactional
     public Book update(Book book) throws Exception {
         entityManager.merge(book);
@@ -66,24 +58,20 @@ public class BooksRepositoryImpl implements BooksRepository {
     @Transactional
     public List<BookExport> exportAll() {
         TypedQuery<BookExport> q = (TypedQuery<BookExport>) entityManager.
-                createQuery("select new org.pa.dto.BookExport(a.id, a.title, a.authorId.id) from Book AS a",BookExport.class);
-      
+                createQuery("select new org.pa.dto.BookExport(a.id, a.title, a.authorId.id) from Book AS a", 
+                        BookExport.class);
         List<BookExport> list = q.getResultList();
         return list;
-        
     }
     
     @Override
     @Transactional
     public List<Book> findAll() {
-
         Query q = entityManager.createQuery("select a from Book a");
         List<Book> list = q.getResultList();
         return list;
-
     }
 
-    // @Cacheable(value="books", key="#id")
     @Transactional
     public Book findById(Serializable id) throws javax.persistence.NoResultException {
         return (Book) findOne(id);
@@ -97,12 +85,10 @@ public class BooksRepositoryImpl implements BooksRepository {
         return q.getSingleResult();
     }
 
-    @Override
     public Iterable save(Iterable itrbl) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     @Transactional
     public boolean exists(Serializable id) {
         boolean found = false;
@@ -115,17 +101,14 @@ public class BooksRepositoryImpl implements BooksRepository {
         return found;
     }
 
-    @Override
     @Transactional
     public Iterable findAll(Iterable itrbl) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     @Transactional
     public long count() {
         return (Long) entityManager.createQuery("Select count(a.id) from Book a").getSingleResult();
-
     }
 
     
@@ -160,12 +143,10 @@ public class BooksRepositoryImpl implements BooksRepository {
         entityManager.remove(book);
     }
 
-    @Override
     public void delete(Iterable itrbl) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public void deleteAll() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -177,12 +158,10 @@ public class BooksRepositoryImpl implements BooksRepository {
         return s;
     }
 
-    @Override
     public Object save(Object arg0) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public void delete(Object entity) {
         entityManager.remove(entity);
     }

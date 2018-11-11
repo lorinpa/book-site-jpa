@@ -127,7 +127,7 @@ public class ReviewController {
     @RequestMapping(value = DEL_URL, method = RequestMethod.POST)
     public String submitDelete(@ModelAttribute Review review, BindingResult result, Model model) {
         try {
-            reviewRepo.delete(review);
+            reviewRepo.delete(review.getId());
             return REDIRECT_HOME_URL;
         } catch (PersistenceException pe) {
                // we don't have a duplicate review constraint

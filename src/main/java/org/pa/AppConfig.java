@@ -3,7 +3,7 @@ package org.pa;
 import java.util.Properties;
 import javax.persistence.EntityManagerFactory;
 import org.apache.commons.dbcp.BasicDataSource;
-import org.hibernate.ejb.HibernatePersistence;
+import org.hibernate.jpa.HibernatePersistenceProvider;
 import org.pa.repository.AuthorsRepository;
 import org.pa.repository.AuthorsRepositoryImpl;
 import org.pa.repository.BookCategoriesRepository;
@@ -59,7 +59,7 @@ public class AppConfig {
         LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
         emf.setDataSource(pooledDs());
         emf.setPackagesToScan(new String[]{"org.pa.entity", "org.pa.repository", "org.pa.controller", "org.pa.application"});
-        emf.setPersistenceProvider(new HibernatePersistence());
+        emf.setPersistenceProvider(new HibernatePersistenceProvider());
         emf.setPersistenceUnitName("localH2");
         HibernateJpaDialect hibernateJpaDialect = new HibernateJpaDialect();
         emf.setJpaProperties(getJPAProperties());
@@ -109,7 +109,8 @@ public class AppConfig {
         props.setProperty("javax.persistence.jdbc.url", DB_URL);
         props.setProperty("hibernate.connection.driver_class", "org.h2.Driver");
         props.setProperty("hibernate.connection.url", DB_URL);
-        return props;
+        props.setProperty("hibernate.connection.release_mode", "on_close");
+		return props;
     }
 
     @Bean
